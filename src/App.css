@@ -1,0 +1,14 @@
+.home-logo,
+.tem-logo {
+  width: 100%;
+  min-width: 350px;
+}
+
+.tem-logo {
+    height: 70px;
+    object-fit: cover;
+}
+
+.navbar-collapse {
+    justify-content: center;
+}
