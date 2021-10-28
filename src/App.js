@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import TemLogo from './components/TemLogo';
+import TemNavbar from './components/TemNavbar';
+import TemFooter from './components/TemFooter';
+import Home from './components/Home';
+import Blog from './components/Blog';
+import Authors from './components/Authors';
+import Contact from './components/Contact';
+import Login from './components/Login';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TemLogo />
+      <TemNavbar />
+      <Home />
+      <Blog />
+      <Authors />
+      <Contact />
+      <Login />
+      <TemFooter />
     </div>
   );
 }
