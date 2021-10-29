@@ -1,8 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Container from "../node_modules/react-bootstrap/Container";
-import Col from "../node_modules/react-bootstrap/Col";
-import Row from "../node_modules/react-bootstrap/Row";
 import TemLogo from "./components/TemLogo";
 import HomeLogo from "./components/HomeLogo";
 import { Route, Switch } from "react-router-dom";
@@ -17,39 +15,37 @@ import Login from "./components/Login";
 function App() {
   return (
     <div className="App">
-      <Row>
-        <Col lg="3">
-          <Switch>
-            <Route exact path="/">
-              <HomeLogo />
-            </Route>
-            <Route path="/">
-              <TemLogo />
-            </Route>
-          </Switch>
-        </Col>
-        <Col>
-          <TemNavbar />
-        </Col>
-      </Row>
+      <div class="logo">
+        <Switch>
+          <Route exact path="/">
+            <HomeLogo />
+          </Route>
+          <Route path="/">
+            <TemLogo />
+          </Route>
+        </Switch>
+      </div>
+      <div class="top-nav">
+        <TemNavbar />
+      </div>
       <div>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/blog">
-          <Blog />
-        </Route>
-        <Route path="/authors">
-          <Authors />
-        </Route>
-        <Route path="/contact">
-          <Contact />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-      </Switch>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/blog">
+            <Blog />
+          </Route>
+          <Route path="/authors">
+            <Authors />
+          </Route>
+          <Route path="/contact">
+            <Contact />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+        </Switch>
       </div>
       <TemFooter />
     </div>

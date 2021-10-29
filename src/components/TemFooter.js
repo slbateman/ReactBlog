@@ -7,34 +7,43 @@ import { Link } from "react-router-dom";
 function TemFooter() {
   return (
     <div class="tem-footer">
-      <Navbar bg="dark" variant="dark" fixed="bottom">
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Row>
-              <Col className="d-flex">
-                <Navbar.Text>Copyright 2021 Steve Bateman</Navbar.Text>
-              </Col>
-              <Col >
-                <Nav className="d-flex">
-                  <Link className="nav-link" to="/">
-                    home
-                  </Link>
-                  <Link className="nav-link" to="/blog">
-                    blog
-                  </Link>
-                  <Link className="nav-link" to="/authors">
-                    authors
-                  </Link>
-                  <Link className="nav-link" to="/contact">
-                    contact
-                  </Link>
-                  <Link className="nav-link" to="/login">
-                    login
-                  </Link>
-                </Nav>
-              </Col>
-            </Row>
-          </Navbar.Collapse>
+      <Navbar
+        className="justify-content-center"
+        bg="dark"
+        variant="dark"
+        fixed="bottom"
+      >
+        <Row>
+          <Col>
+            <Navbar.Text>
+              Copyright © 2021
+              <br />
+              Steve Bateman
+            </Navbar.Text>
+          </Col>
+          <Col>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="d-flex">
+                <Link className="nav-link" to="/">
+                  home
+                </Link>
+                <Link className="nav-link" to="/blog">
+                  blog
+                </Link>
+                <Link className="nav-link" to="/authors">
+                  authors
+                </Link>
+                <Link className="nav-link" to="/contact">
+                  contact
+                </Link>
+                <Link className="nav-link" to="/login">
+                  login
+                </Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Col>
+        </Row>
       </Navbar>
     </div>
   );

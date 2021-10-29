@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 
 function TemNavbar() {
   return (
-    <div class="tem-navbar">
-      <Navbar className="justify-content-center" bg="dark" variant="dark" expand="sm">
+    <div>
+      <Navbar className="justify-content-center" bg="dark" variant="dark" expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" >
             <Container>
