@@ -87,3 +87,19 @@
     font-size: .5em;
     border: 1px solid black;
 }
+
+.home-img-carousel {
+    position: absolute;
+    left: 350px;
+    top: 70px;
+    width: calc(100vw - 350px);
+    height: calc(100vh - 70px -70px) !important;
+    border: 1px solid black;
+}
+
+.carousel-img {
+    object-fit: cover;
+    width: calc(100vw - 350px);
+    height: calc(100vh - 70px -70px) !important;
+    border: 1px solid black;
+}

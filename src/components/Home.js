@@ -5,7 +5,7 @@ function Home() {
   return (
     <div class="home">
       <HomeArticleScroll />
-      <HomeImgCarousel />
+      <HomeImgCarousel  />
     </div>
   );
 }
