@@ -2,7 +2,7 @@ import Shoggoth from "../images/shoggoth.jpeg";
 
 const ArticleList = [
     {
-        image: {Shoggoth},
+        image: Shoggoth,
         imageAlt: "Scary Monster 1",
         title: "Monsters Around The World",
         author: "Steve Bateman",

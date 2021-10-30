@@ -9,7 +9,7 @@ function HomeImgCarousel() {
         {ArticleList.map((data) => (
           <Carousel.Item>
             <div>
-              <img className="carousel-img" src={Shoggoth} alt={data.imageAlt} />
+              <img className="carousel-img" src={data.image} alt={data.imageAlt} />
             </div>
           </Carousel.Item>
         ))}

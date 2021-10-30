@@ -5,8 +5,8 @@ function getArticles() {
     <div>
       {ArticleList.map((data) => (
         <div className="blog-preview">
-          <div className="preview-image">
-            <img src={data.image} alt={data.imageAlt} />
+          <div>
+            <img  className="preview-image" src={data.image} alt={data.imageAlt} />
           </div>
           <div className="preview-text">
             <div className="preview-title">{data.title}</div>
