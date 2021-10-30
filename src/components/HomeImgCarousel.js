@@ -1,6 +1,5 @@
 import Carousel from "../../node_modules/react-bootstrap/Carousel";
 import ArticleList from "../data/ArticleList";
-import Shoggoth from "../images/shoggoth.jpeg";
 
 function HomeImgCarousel() {
   return (
