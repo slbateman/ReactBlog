@@ -3,7 +3,7 @@ import ArticleList from "../data/ArticleList";
 
 function HomeImgCarousel() {
   return (
-    <div class="home-img-carousel">
+    <div className="home-img-carousel">
       <Carousel>
         {ArticleList.map((data) => (
           <Carousel.Item>

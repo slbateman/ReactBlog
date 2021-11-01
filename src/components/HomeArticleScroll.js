@@ -14,7 +14,7 @@ function getArticles() {
               <div className="preview-author">{data.author}</div>
               <div className="preview-date">{data.date}</div>
             </div>
-            <div className="preview-body">{data.body.substr(0,115)}...</div>
+            <div className="preview-body">{data.body[0].substr(0,115)}...</div>
           </div>
         </div>
       ))}
