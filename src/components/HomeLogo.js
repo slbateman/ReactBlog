@@ -1,10 +1,11 @@
+import Img from "../images/shoggoth.jpeg";
 
-function HomeLogo () {
-    return (
-        <div class = "home-logo">
+function HomeLogo() {
+  return (
+    <div>
+      <img class="home-logo" src={Img} alt="" />
+    </div>
+  );
+}
 
-        </div>
-    )
-};
-
-export default HomeLogo
+export default HomeLogo;
