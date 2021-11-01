@@ -53,7 +53,6 @@
     width: 75px;
     height: 75px;
     object-fit: cover;
-    border: 1px solid black;
 }
 
 .preview-text {
@@ -61,31 +60,26 @@
     float: right;
     width: 230px;
     height: 75px;
-    border: 1px solid black;
 }
 
 .preview-title {
     font-size: 1em;
-    border: 1px solid black;
 }
 
 .preview-author-date{
     float: right;
-    border: 1px solid black;
+    padding-left: 8px;
 }
 .preview-author {
     font-size: .75em;
-    border: 1px solid black;
 }
 
 .preview-date {
     font-size: .5em;
-    border: 1px solid black;
 }
 
 .preview-body {
     font-size: .5em;
-    border: 1px solid black;
 }
 
 .home-img-carousel {
@@ -98,8 +92,8 @@
 }
 
 .carousel-img {
-    object-fit: cover;
     width: calc(100vw - 350px);
     height: calc(100vh - 70px -70px) !important;
+    object-fit: cover;
     border: 1px solid black;
 }

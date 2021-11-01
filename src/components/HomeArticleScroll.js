@@ -9,12 +9,12 @@ function getArticles() {
             <img  className="preview-image" src={data.image} alt={data.imageAlt} />
           </div>
           <div className="preview-text">
-            <div className="preview-title">{data.title}</div>
+            <div className="preview-title">{data.title.substr(0,28)}</div>
             <div className="preview-author-date">
               <div className="preview-author">{data.author}</div>
               <div className="preview-date">{data.date}</div>
             </div>
-            <div className="preview-body">{data.body}</div>
+            <div className="preview-body">{data.body.substr(0,115)}...</div>
           </div>
         </div>
       ))}
