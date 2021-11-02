@@ -1,7 +1,7 @@
 
 function BlogComments () {
     return (
-        <div class = "blog-comments">
+        <div className="blog-comments">
 
         </div>
     )

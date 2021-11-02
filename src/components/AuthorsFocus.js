@@ -1,7 +1,7 @@
 
 function AuthorsFocus () {
     return (
-        <div class = "authors-focus">
+        <div className = "authors-focus">
 
         </div>
     )

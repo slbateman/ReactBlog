@@ -2,8 +2,8 @@ import Img from "../images/shoggoth.jpeg";
 
 function TemLogo() {
   return (
-    <div class="tem-logo">
-      <img class="tem-logo" src={Img} alt="" />
+    <div className="tem-logo">
+      <img className="tem-logo" src={Img} alt="" />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 function TemFooter() {
   return (
-    <div class="tem-footer">
+    <div className="tem-footer">
       <Navbar
         className="justify-content-center"
         bg="dark"

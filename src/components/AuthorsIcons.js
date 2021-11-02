@@ -1,7 +1,7 @@
 
 function AuthorsIcons () {
     return (
-        <div class = "authors-icons">
+        <div className = "authors-icons">
 
         </div>
     )

@@ -1,7 +1,7 @@
 
 function AuthorsImg () {
     return (
-        <div class = "authors-img">
+        <div className = "authors-img">
 
         </div>
     )

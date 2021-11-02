@@ -4,7 +4,7 @@ import AuthorsFocus from "./AuthorsFocus";
 
 function Authors () {
     return (
-        <div class = "authors">
+        <div className = "authors">
             <AuthorsIcons />
             <AuthorsImg />
             <AuthorsFocus />

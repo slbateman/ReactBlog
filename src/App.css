@@ -100,8 +100,9 @@
 .blog-previous {
     color: rgb(124, 124, 124);
     position: fixed;
+    margin: 10px;
     margin-top: 350px;
-    width: 200px;
+    width: 180px;
     text-align: center;
 }
 
@@ -109,8 +110,9 @@
     color: rgb(124, 124, 124);
     position: fixed;
     right: 0;
+    margin: 10px;
     margin-top: 350px;
-    width: 200px;
+    width: 180px;
     text-align: center;
 }
 

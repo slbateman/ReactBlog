@@ -1,18 +1,18 @@
 import ArticleList from "../data/ArticleList";
 
-function BlogArticle({i}) {
+function BlogArticle({index}) {
     
   return (
     <div className="blog-article">
       <img
         className="blog-article-img"
-        src={ArticleList[i].image}
-        alt={ArticleList[i].imageAlt}
+        src={ArticleList[index].image}
+        alt={ArticleList[index].imageAlt}
       />
-      <h1 className="blog-article-title">{ArticleList[i].title}</h1>
-      <h4 className="blog-article-author">By: {ArticleList[i].author}</h4>
-      <h6 className="blog-article-date">Date: {ArticleList[i].date}</h6>
-      <div>{ArticleList[i].body.map((data) => (
+      <h1 className="blog-article-title">{ArticleList[index].title}</h1>
+      <h4 className="blog-article-author">By: {ArticleList[index].author}</h4>
+      <h6 className="blog-article-date">Date: {ArticleList[index].date}</h6>
+      <div>{ArticleList[index].body.map((data) => (
       <p className="blog-article-body">{data}</p>
       ))}
       </div>

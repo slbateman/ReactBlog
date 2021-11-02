@@ -23,7 +23,7 @@ function getArticles() {
 }
 
 function HomeArticleScroll() {
-  return <div class="home-article-scroll">{getArticles()}</div>;
+  return <div className="home-article-scroll">{getArticles()}</div>;
 }
 
 export default HomeArticleScroll;
