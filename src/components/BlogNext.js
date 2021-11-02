@@ -6,7 +6,7 @@ function BlogNext({ index, changeArticle }) {
   if (index >= 0) {
     let nextArticlePath = `/blog/${ArticleList[index].date}`;
     nextBlog = (
-      <Link onClick={() => changeArticle(-1) } to={nextArticlePath} >
+      <Link onClick={() => changeArticle(ArticleList[index].date) } to={nextArticlePath} >
         <div className="blog-next">
           <h4>NEXT</h4>
           <h5>{ArticleList[index].title}</h5>
