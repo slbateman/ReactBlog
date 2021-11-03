@@ -1,7 +1,7 @@
 import ArticleList from "../data/ArticleList";
 
 function BlogArticle({index}) {
-    
+  
   return (
     <div className="blog-article">
       <img

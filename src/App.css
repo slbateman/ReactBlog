@@ -116,6 +116,19 @@
     text-align: center;
 }
 
+.top-button {
+    /* visibility: hidden; */
+    display: none;
+    color: rgb(124, 124, 124);
+    position: fixed;
+    right: 0;
+    margin: 50px;
+    margin-top: 500px;
+    width: 30px;
+    border-radius: 50%;
+    text-align: center;
+}
+
 .blog-article {
     margin: auto;
     text-align: center;

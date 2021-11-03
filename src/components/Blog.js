@@ -5,27 +5,25 @@ import BlogComments from "./BlogComments";
 import BlogNext from "./BlogNext";
 import BlogPrevious from "./BlogPrevious";
 import ArticleList from "../data/ArticleList";
+import { useLocation } from "react-router-dom";
 // import ArticleList from "../data/ArticleList";
 
 function Blog() {
-  const [articlePath, setArticlePath] = useState(
-    ``
+  let location = useLocation();
+  const [articlePath, setArticlePath] = useState(``);
+  const [articleIndex, setArticleIndex] = useState(
+    ArticleList.findIndex(
+      (element) => element.date === location.pathname.substr(6, 16)
+    )
   );
-  // console.log(ArticleList.findIndex((element) => element.date === articlePath.substr(6,16)))
-  const [articleIndex, setArticleIndex] = useState(0);
 
   const changeArticle = (indexChange) => {
     changePath(indexChange);
-    // console.log(indexChange);
-    // console.log(
-    //   ArticleList.findIndex((element) => element.date === indexChange)
-    // );
     setArticleIndex(
       ArticleList.findIndex((element) => element.date === indexChange)
     );
   };
   const changePath = (dateChange) => {
-    // console.log("change path");
     setArticlePath(`/blog/${dateChange}`);
   };
 
