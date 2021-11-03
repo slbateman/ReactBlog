@@ -6,7 +6,7 @@ function HomeImgCarousel() {
     <div className="home-img-carousel">
       <Carousel>
         {ArticleList.map((data) => (
-          <Carousel.Item>
+          <Carousel.Item >
             <div>
               <img className="carousel-img" src={data.image} alt={data.imageAlt} />
             </div>

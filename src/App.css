@@ -46,6 +46,7 @@
 
 .blog-preview{
     margin: 10px;
+    color: black;
 }
 
 .preview-image {
@@ -146,3 +147,18 @@
     text-align: left;
 }
 
+.blog-comments {
+    text-align: left;
+}
+
+.blog-comment-area {
+    background-color: rgb(199, 199, 199);
+}
+
+.reply-button {
+    margin: 10px;
+}
+
+.comment-reply {
+    margin-left: 100px;
+}

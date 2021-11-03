@@ -1,5 +1,5 @@
 import ArticleList from "../data/ArticleList";
-import ToTopButton from "./ToTopButton"
+import ToTopButton from "./ToTopButton";
 import { Link } from "react-router-dom";
 
 function BlogNext({ index, changeArticle }) {
