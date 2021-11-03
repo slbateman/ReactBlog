@@ -17,10 +17,11 @@ function Blog() {
     )
   );
 
-  const changeArticle = (indexChange) => {
-    changePath(indexChange);
+  const changeArticle = (dateChange) => {
+    window.scrollTo(0, 0);
+    changePath(dateChange);
     setArticleIndex(
-      ArticleList.findIndex((element) => element.date === indexChange)
+      ArticleList.findIndex((element) => element.date === dateChange)
     );
   };
   const changePath = (dateChange) => {

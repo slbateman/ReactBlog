@@ -118,14 +118,14 @@
 
 .top-button {
     /* visibility: hidden; */
-    display: none;
+    display: hidden;
     color: rgb(124, 124, 124);
     position: fixed;
     right: 0;
-    margin: 50px;
+    margin-right: 52px;
     margin-top: 500px;
-    width: 30px;
-    border-radius: 50%;
+    width: 95px;
+    border-radius: 5px;
     text-align: center;
 }
 

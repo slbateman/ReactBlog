@@ -6,7 +6,12 @@ function BlogPrevious({ index, changeArticle }) {
   if (index < ArticleList.length) {
     let previousArticlePath = `/blog/${ArticleList[index].date}`;
     previousBlog = (
-      <Link onClick={() => changeArticle(ArticleList[index].date) } to={previousArticlePath} >
+      <Link
+        onClick={() => {
+          changeArticle(ArticleList[index].date);
+        }}
+        to={previousArticlePath}
+      >
         <div className="blog-previous">
           <h4>PREVIOUS</h4>
           <h5>{ArticleList[index].title}</h5>

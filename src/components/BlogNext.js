@@ -1,27 +1,17 @@
 import ArticleList from "../data/ArticleList";
+import ToTopButton from "./ToTopButton"
 import { Link } from "react-router-dom";
 
 function BlogNext({ index, changeArticle }) {
-  // window.onscroll = function () {
-  //   scrollFunction();
-  // };
-  // function scrollFunction(e) {
-  //   if (
-  //     document.body.scrollTop > 20 ||
-  //     document.documentElement.scrollTop > 20
-  //   ) {
-  //     e.style.display = "block";
-  //   } else {
-  //     e.style.display = "none";
-  //   }
-  // }
 
   let nextBlog;
   if (index >= 0) {
     let nextArticlePath = `/blog/${ArticleList[index].date}`;
     nextBlog = (
       <Link
-        onClick={() => changeArticle(ArticleList[index].date)}
+        onClick={() => {
+          changeArticle(ArticleList[index].date);
+        }}
         to={nextArticlePath}
       >
         <div className="blog-next">
@@ -37,21 +27,7 @@ function BlogNext({ index, changeArticle }) {
   return (
     <div>
       {nextBlog}
-      <button
-        className="top-button"
-        onClick={() => {
-          window.scrollTo(0, 0);
-        }}
-        onScroll={(e) => {
-          if (window.scrollTop > 300) {
-            e.target.style.display = "block";
-          } else {
-            e.target.style.display = "none";
-          }
-        }}
-      >
-        ^
-      </button>
+      <ToTopButton />
     </div>
   );
 }
