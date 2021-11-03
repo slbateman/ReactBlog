@@ -10,22 +10,17 @@ import { useLocation } from "react-router-dom";
 
 function Blog() {
   let location = useLocation();
-  const [articlePath, setArticlePath] = useState(``);
   const [articleIndex, setArticleIndex] = useState(
     ArticleList.findIndex(
-      (element) => element.date === location.pathname.substr(6, 16)
+      (element) => element.date === location.pathname.substr(6, 15)
     )
   );
 
   const changeArticle = (dateChange) => {
     window.scrollTo(0, 0);
-    changePath(dateChange);
     setArticleIndex(
       ArticleList.findIndex((element) => element.date === dateChange)
     );
-  };
-  const changePath = (dateChange) => {
-    setArticlePath(`/blog/${dateChange}`);
   };
 
   return (
@@ -37,7 +32,7 @@ function Blog() {
           <BlogArticle index={0} />
           <BlogComments index={0} />
         </Route>
-        <Route path={articlePath}>
+        <Route path="/blog/">
           <BlogPrevious
             index={articleIndex + 1}
             changeArticle={changeArticle}

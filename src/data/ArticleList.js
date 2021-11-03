@@ -11,6 +11,7 @@ import image10 from "../images/image10.jpeg";
 
 const ArticleList = [
     {
+        articleID: "00010",
         image: image01,
         imageAlt: "Scary Monster 1",
         title: "Mythical American Monsters",
@@ -80,6 +81,7 @@ const ArticleList = [
     ]
     },
     {
+        articleID: "00009",
         image: image02,
         imageAlt: "Scary Monster 2",
         title: "Top 10 Scariest Monsters",
@@ -139,6 +141,7 @@ const ArticleList = [
         ]
     },
     {
+        articleID: "00008",
         image: image03,
         imageAlt: "Scary Monster 3",
         title: "The Monsters that Make Us",
@@ -160,6 +163,7 @@ const ArticleList = [
         ]
     },
     {
+        articleID: "00007",
         image: image04,
         imageAlt: "Scary Monster 4",
         title: "Why We Invent Monsters",
@@ -210,6 +214,7 @@ const ArticleList = [
     ]
     },
     {
+        articleID: "00006",
         image: image05,
         imageAlt: "Scary Monster 5",
         title: "Writing Monsters",
@@ -258,6 +263,7 @@ const ArticleList = [
     ]
     },
     {
+        articleID: "00005",
         image: image06,
         imageAlt: "Scary Monster 6",
         title: "Fairies Weren't Always Cute",
@@ -306,6 +312,7 @@ const ArticleList = [
     ]
     },
     {
+        articleID: "00004",
         image: image07,
         imageAlt: "Scary Monster 7",
         title: "Origins of Werewolves",
@@ -348,6 +355,7 @@ const ArticleList = [
     ]
     },
     {
+        articleID: "00003",
         image: image08,
         imageAlt: "Scary Monster 8",
         title: "Monsters on the Mind",
@@ -410,6 +418,7 @@ const ArticleList = [
     ]
     },
     {
+        articleID: "00002",
         image: image09,
         imageAlt: "Scary Monster 9",
         title: "Obsessed with Monsters",
@@ -472,6 +481,7 @@ const ArticleList = [
     ]
     },
     {
+        articleID: "00001",
         image: image10,
         imageAlt: "Scary Monster 10",
         title: "Hilarious Movie Monsters",

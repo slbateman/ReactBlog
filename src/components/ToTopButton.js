@@ -3,14 +3,13 @@ import { useState } from "react";
 function ToTopButton() {
   const [topButton, setTopButton] = useState(<div></div>);
   window.onscroll = () => {
-      console.log(document.documentElement.scrollTop)
     scrollFunction();
   };
   function scrollFunction() {
     if (
+      document.body.scrollTop > 300 ||
       document.documentElement.scrollTop > 300
     ) {
-        console.log("True")
       setTopButton(
         <button
           className="top-button"
@@ -22,7 +21,6 @@ function ToTopButton() {
         </button>
       );
     } else {
-        console.log("False")
         setTopButton(<div></div>)
     }
   }
