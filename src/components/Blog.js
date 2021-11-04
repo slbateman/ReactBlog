@@ -1,10 +1,9 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useLocation } from "react-router-dom";
 import { useState } from "react";
 import BlogArticle from "./BlogArticle";
 import BlogNext from "./BlogNext";
 import BlogPrevious from "./BlogPrevious";
 import ArticleList from "../data/ArticleList";
-import { useLocation } from "react-router-dom";
 
 function Blog() {
   let location = useLocation();
@@ -34,7 +33,9 @@ function Blog() {
             index={articleIndex + 1}
             changeArticle={changeArticle}
           />
-          <BlogNext index={articleIndex - 1} changeArticle={changeArticle} />
+          <BlogNext 
+            index={articleIndex - 1} 
+            changeArticle={changeArticle} />
           <BlogArticle index={articleIndex} />
         </Route>
       </Switch>

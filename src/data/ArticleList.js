@@ -15,7 +15,7 @@ const ArticleList = [
         image: image01,
         imageAlt: "Scary Monster 1",
         title: "Mythical American Monsters",
-        author: "Steve Bateman",
+        author: "Vincent Price",
         date: "2021-10-27",
         body: [`Every culture around the globe creates mythical tales. And a lot of them involve scary creatures: Scotland's Loch Ness Monster, for instance or the Himalayans' Yeti, or Abominable Snowman. It's part of our human DNA.
         But why is that? "We tell ourselves stories because we (humans) are storytelling animals," said Shira Chess, assistant mass media professor at the University of Georgia in a Washington Post article. "And, to that end, horror stories take on a specific significance and importance because they function metaphorically — the horror stories that are the best are often metaphors for other issues that affect our lives on both cultural and personal levels."
@@ -267,7 +267,7 @@ const ArticleList = [
         image: image06,
         imageAlt: "Scary Monster 6",
         title: "Fairies Weren't Always Cute",
-        author: "Steve Bateman",
+        author: "Alfred Hitchcock",
         date: "2021-08-24",
         body: [`When most people think about fairies, they perhaps picture the sparkling Tinker Bell from Peter Pan or the other heartwarming and cute fairies and fairy god mothers that populate many Disney movies and children’s cartoons. But these creatures have much darker origins - and were once thought to be more like undead blood-sucking vampires.
         `,
@@ -485,7 +485,7 @@ const ArticleList = [
         image: image10,
         imageAlt: "Scary Monster 10",
         title: "Hilarious Movie Monsters",
-        author: "Steve Bateman",
+        author: "Vincent Price",
         date: "2021-07-01",
         body: [`In the '90s, film special effects and CGI weren't what they are now. As a result, these "scary" movie monsters are more funny-looking than horrifying.
         Whether they exist in nature or in our minds, monsters remind us of our place in the world. Some of these creatures distance themselves from civilization, whereas others lurk nearby. For years, films have given shape to our fear of the unnatural. Xenomorphs changed how we think of aliens. David Cronenberg's The Fly showed how we make our own monsters. And dinosaurs were no longer a fantasy in Jurassic Park. But for every successful-looking monster, there are ones who undermine their own fearfulness. With a focus on the '90s, here are ten monsters that looked too hilarious to be scary.

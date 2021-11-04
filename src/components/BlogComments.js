@@ -4,13 +4,13 @@ import Form from "../../node_modules/react-bootstrap/Form";
 import Button from "../../node_modules/react-bootstrap/Button";
 
 function submitComment(value, index) {
-  Comments.push({
-    commentID: `${ArticleList[index].articleID}"-"${ArticleList[index].articleID}`,
-    replyID: "",
-    articleID: ArticleList[index].articleID,
-    user: "",
-    comment: value,
-  });
+//   Comments.push({
+//     commentID: `${ArticleList[index].articleID}"-"${ArticleList[index].articleID}`,
+//     replyID: "",
+//     articleID: ArticleList[index].articleID,
+//     user: "",
+//     comment: value,
+//   });
 }
 
 function BlogComments({ index }) {
@@ -19,6 +19,7 @@ function BlogComments({ index }) {
     if (ArticleList[index].articleID === data.articleID) {
       articleComments.push([data.user, data.comment, data.reply]);
     }
+    return articleComments
   });
 
   return (
