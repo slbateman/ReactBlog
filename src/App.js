@@ -1,9 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import Container from "../node_modules/react-bootstrap/Container";
+import { Route, Switch } from "react-router-dom";
 import TemLogo from "./components/TemLogo";
 import HomeLogo from "./components/HomeLogo";
-import { Route, Switch } from "react-router-dom";
 import TemNavbar from "./components/TemNavbar";
 import TemFooter from "./components/TemFooter";
 import Home from "./components/Home";
@@ -13,9 +12,10 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 
 function App() {
+  
   return (
     <div className="App">
-      <div class="logo">
+      <div className="logo">
         <Switch>
           <Route exact path="/">
             <HomeLogo />
@@ -25,7 +25,7 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <div class="top-nav">
+      <div className="top-nav">
         <TemNavbar />
       </div>
       <div>

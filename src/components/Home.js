@@ -3,7 +3,7 @@ import HomeImgCarousel from "./HomeImgCarousel";
 
 function Home() {
   return (
-    <div class="home">
+    <div className="home">
       <HomeArticleScroll />
       <HomeImgCarousel  />
     </div>

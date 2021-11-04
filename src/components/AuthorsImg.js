@@ -1,8 +1,10 @@
+import AuthorImage from "../images/authorimage.jpeg"
+
 
 function AuthorsImg () {
     return (
-        <div class = "authors-img">
-
+        <div >
+            <img className = "authors-img" src={AuthorImage} alt="Monstrous Beast" />
         </div>
     )
 };
