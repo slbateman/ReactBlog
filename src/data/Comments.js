@@ -12,7 +12,6 @@ const Comments = [
     reply: [
         {
             replyID: "0000001",
-            articleID: "00001",
             user: "slobat",
             comment: "There is a scientific angle to fairies and their ilk based upon the resemblance of modern reports of UFO phenomena to folk tales. Dr Jacques Vallee’s classic “Passport to Magonia” led the way.",
     
@@ -45,14 +44,12 @@ const Comments = [
     reply: [
       {
         replyID: "0000001",
-        articleID: "00001",
         user: "slobat",
         comment:
           "There is a scientific angle to fairies and their ilk based upon the resemblance of modern reports of UFO phenomena to folk tales. Dr Jacques Vallee’s classic “Passport to Magonia” led the way.",
       },
       {
         replyID: "0000002",
-        articleID: "00010",
         user: "harborDan",
         comment: `I am disappointed that the editors did not credit the main illustration.  
     
@@ -118,7 +115,6 @@ const Comments = [
     reply: [
         {
             replyID: "0000001",
-            articleID: "00002",
             user: "harborDan",
             comment: `I am disappointed that the editors did not credit the main illustration.  
         

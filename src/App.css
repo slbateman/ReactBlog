@@ -119,8 +119,10 @@
 
 .top-button {
     /* visibility: hidden; */
+    border: none;
+    background-color: rgb(31, 31, 31);
     display: hidden;
-    color: rgb(124, 124, 124);
+    color: rgb(221, 221, 221);
     position: fixed;
     right: 0;
     margin-right: 52px;
@@ -160,6 +162,18 @@
 }
 
 .comment-reply {
+    margin-left: 100px;
+}
+
+.is-visible {
+    display: block;
+}
+
+.is-invisible {
+    display: none;
+}
+
+.blog-reply-area  {
     margin-left: 100px;
 }
 

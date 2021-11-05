@@ -19,7 +19,7 @@ function BlogCommentForm({index}) {
         submitComment();
       }}
     >
-      <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+      <Form.Group className="mb-3" controlId="comment">
         <Form.Label>
           <h4>COMMENTS</h4>
         </Form.Label>
