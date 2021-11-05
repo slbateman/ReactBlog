@@ -9,7 +9,7 @@ function Authors() {
   let location = useLocation();
   const [authorIndex, setAuthorIndex] = useState(
     AuthorBios.findIndex(
-      (element) => element.fName + "-" + element.lName === location.pathname.substr(6, 30)
+      (element) => element.fName + "-" + element.lName === location.pathname.substr(9, 30)
     )
   );
 
