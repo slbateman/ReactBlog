@@ -145,7 +145,7 @@ const ArticleList = [
         image: image03,
         imageAlt: "Scary Monster 3",
         title: "The Monsters that Make Us",
-        author: "HR Giger",
+        author: "H.R. Giger",
         date: "2021-10-15",
         body: [`Monster comes from the Latin monstrum, meaning something unnatural or unpleasant. Early thinkers thought a monster was some malfunction of nature. There are plenty of monsters in classical mythology. For example, Cerberus is a three-headed dog with a serpent for a tail. Called “the hound of Hades,” Cerberus guards the gates of the underworld to keep the dead from leaving. A serpentine water monster, the multi-headed hydra poses a unique problem as it regenerates two (or more heads) for every head severed making it difficult to kill. Medusa, a gorgon, has wings and venomous snakes in place of hair. Looking at her directly turns the viewer to stone.
         `,
@@ -218,7 +218,7 @@ const ArticleList = [
         image: image05,
         imageAlt: "Scary Monster 5",
         title: "Writing Monsters",
-        author: "HR Giger",
+        author: "H.R. Giger",
         date: "2021-09-13",
         body: [`The definition of a monster differs depending on who the reader or observer is. A zombie in a TV show may be a scary monster to some, but for others, the scariest monsters are more psychological. Monster design can follow a familiar mythological creature trope, like a vampire or werewolf, or it can be a personal horror all your own.
         `,
@@ -422,7 +422,7 @@ const ArticleList = [
         image: image09,
         imageAlt: "Scary Monster 9",
         title: "Obsessed with Monsters",
-        author: "HR Giger",
+        author: "H.R. Giger",
         date: "2021-07-12",
         body: [`Fear continues to saturate our lives: fear of nuclear destruction, fear of climate change, fear of the subversive, and fear of foreigners.
         `,

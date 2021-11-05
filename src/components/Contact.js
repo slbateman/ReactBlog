@@ -1,15 +1,13 @@
 import ContactImg from "./ContactImg";
 import ContactForm from "./ContactForm";
 
-function Contact () {
+function Contact() {
+  return (
+    <div className="contact-page">
+      <ContactForm />
+      <ContactImg />
+    </div>
+  );
+}
 
-    return (
-        <div className="contact-page">
-            <ContactImg />
-            <ContactForm />
-        </div>
-
-    )
-};
-
-export default Contact
+export default Contact;

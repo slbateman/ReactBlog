@@ -163,7 +163,7 @@
     margin-left: 100px;
 }
 
-.authors-img {
+.authors-img, .contact-img {
     height: calc(100vh - 70px - 70px);
     width: 40%;
     object-fit: cover;
@@ -211,4 +211,15 @@
     margin: 20px;
     margin-right: 0px;
     overflow-y: scroll;
+}
+
+.contact-form {
+    float: right;
+    width: 60%;
+}
+
+.contact-form-align {
+    width: 60%;
+    margin: 20%;
+    margin-top: 10%;
 }
