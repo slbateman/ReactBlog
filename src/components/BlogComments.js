@@ -11,12 +11,17 @@ function BlogComments({ index }) {
   let articleComments = [];
   Comments.map((data) => {
     if (ArticleList[index].articleID === data.articleID) {
-      articleComments.push([data.user, data.comment, data.reply, data.commentID]);
+      articleComments.push([
+        data.user,
+        data.comment,
+        data.reply,
+        data.commentID,
+      ]);
     }
     return articleComments;
   });
 
-  const [buttonCommentID, setButtonCommentID] = useState("")
+  const [buttonCommentID, setButtonCommentID] = useState("");
 
   return (
     <div className="blog-comments">
@@ -35,13 +40,18 @@ function BlogComments({ index }) {
             type="submit"
             onClick={(e) => {
               e.preventDefault();
-              setButtonCommentID(data[3])
+              setButtonCommentID(data[3]);
             }}
           >
             reply
           </Button>
           <div>
-            <BlogCommentReplyForm commentID={data[3]} i={i} buttonCommentID={buttonCommentID} />
+            <BlogCommentReplyForm
+              commentID={data[3]}
+              i={i}
+              buttonCommentID={buttonCommentID}
+              setButtonCommentID={setButtonCommentID}
+            />
           </div>
           <br />
           <div className="comment-reply">

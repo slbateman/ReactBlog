@@ -3,20 +3,34 @@ import Button from "../../node_modules/react-bootstrap/Button";
 import Comments from "../data/Comments";
 import { useState } from "react";
 
-function BlogCommentReplyForm({ commentID, buttonCommentID, i }) {
+function BlogCommentReplyForm({
+  commentID,
+  buttonCommentID,
+  setButtonCommentID,
+}) {
   let index = Comments.findIndex((element) => element.commentID === commentID);
   function submitReply() {
-    console.log(Comments[index].articleID);
-    console.log(Comments[index].commentID);
-
+    console.log(index);
+    console.log(commentID);
+    console.log(buttonCommentID)
+    console.log(replyValue);
     setReplyValue("");
-    document.querySelectorAll(".blog-reply-area")[i].style.display = "none";
+    document.querySelector(".blog-reply-area").style.display = "none";
+    setButtonCommentID("");
   }
 
   const [replyValue, setReplyValue] = useState("");
- 
+
   return (
-    <div className="blog-reply-area" id={commentID} style={ (commentID === buttonCommentID) ? {display: 'block'}: {display: "none"}}>
+    <div
+      className="blog-reply-area"
+      id={commentID}
+      style={
+        commentID === buttonCommentID
+          ? { display: "block" }
+          : { display: "none" }
+      }
+    >
       <Form
         onSubmit={(e) => {
           e.preventDefault();
@@ -38,7 +52,11 @@ function BlogCommentReplyForm({ commentID, buttonCommentID, i }) {
         <Button
           variant="dark"
           type="button"
-          onClick={() => document.querySelectorAll(".blog-reply-area")[i].style.display = "none"}
+          onClick={() => {
+            document.querySelector(".blog-reply-area").style.display =
+              "none";
+            setButtonCommentID("");
+          }}
         >
           Cancel
         </Button>
