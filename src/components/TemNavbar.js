@@ -13,19 +13,19 @@ function TemNavbar() {
             <Container>
             <Nav className="justify-content-center"> 
               <Link className="nav-link" to="/">
-                <Button variant="secondary">home</Button>
+                <Button variant="dark">home</Button>
               </Link>
               <Link className="nav-link" to="/blog">
-                <Button variant="secondary">blog</Button>
+                <Button variant="dark">blog</Button>
               </Link>
               <Link className="nav-link" to="/authors">
-                <Button variant="secondary">authors</Button>
+                <Button variant="dark">authors</Button>
               </Link>
               <Link className="nav-link" to="/contact">
-                <Button variant="secondary">contact</Button>
+                <Button variant="dark">contact</Button>
               </Link>
               <Link className="nav-link" to="/login">
-                <Button variant="secondary">login</Button>
+                <Button variant="dark">login</Button>
               </Link>
             </Nav>
             </Container>

@@ -13,15 +13,15 @@ function TemFooter() {
         variant="dark"
         fixed="bottom"
       >
-        <Row>
-          <Col>
+        <Row >
+          <Col >
             <Navbar.Text>
               Copyright © 2021
               <br />
               Steve Bateman
             </Navbar.Text>
           </Col>
-          <Col>
+          <Col >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="d-flex">
