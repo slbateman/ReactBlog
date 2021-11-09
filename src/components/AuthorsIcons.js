@@ -11,6 +11,7 @@ function AuthorsIcons({ changeAuthor }) {
               changeAuthor(AuthorBios.indexOf(data));
             }}
             to={`/authors/${data.fName}-${data.lName}`}
+            key={data.fName+data.lName}
           >
             <img
               className="author-icon-img"

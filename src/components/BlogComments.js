@@ -29,7 +29,7 @@ function BlogComments({ index }) {
       <br />
       <br />
       {articleComments.map((data, i) => (
-        <div className="comment">
+        <div className="comment" key={data} >
           <hr />
           <h5>{data[0]}</h5>
           {data[1]}
@@ -56,7 +56,7 @@ function BlogComments({ index }) {
           <br />
           <div className="comment-reply">
             {data[2].map((subData) => (
-              <div>
+              <div key={subData} >
                 <hr />
                 <h5>{subData.user}</h5>
                 {subData.comment}

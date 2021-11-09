@@ -1,11 +1,13 @@
 import ArticleList from "../data/ArticleList";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
+import Container from "../../node_modules/react-bootstrap/Container"
 
 function getArticles() {
   return (
     <div>
       {ArticleList.map((data) => (
-        <Link to={`/blog/${data.date}` } >
+        <Container fluid key={data.articleID} >
+        <Link to={`/blog/${data.date}`} >
           <div className="blog-preview" >
             <div>
               <img
@@ -26,6 +28,7 @@ function getArticles() {
             </div>
           </div>
         </Link>
+        </Container>
       ))}
     </div>
   );
