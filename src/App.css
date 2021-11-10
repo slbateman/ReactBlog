@@ -236,3 +236,9 @@
     margin: 20%;
     margin-top: 10%;
 }
+
+.login-form, .login-signup {
+    width: 350px;
+    margin: auto;
+    padding-top: 15vh;
+}
