@@ -6,7 +6,6 @@ import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
 function BlogComments({ index }) {
-  // const [hiddenState, setHiddenState] = useState({display: 'none'})
 
   let articleComments = [];
   Comments.map((data) => {

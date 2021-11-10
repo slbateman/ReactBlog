@@ -1,27 +1,28 @@
-import Navbar from "../../node_modules/react-bootstrap/Navbar";
-import Nav from "../../node_modules/react-bootstrap/Nav";
-import Row from "../../node_modules/react-bootstrap/Row";
-import Col from "../../node_modules/react-bootstrap/Col";
+import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react"
 
-function TemFooter() {
+function TemFooter({ loggedIn }) {
+  const [profile, setProfile] = useState("login");
+  const [profileLink, setProfileLink] = useState("/login")
+
+  useEffect(() => {
+    loggedIn ? setProfile("profile"): setProfile("login")
+    loggedIn ? setProfileLink("/login/profile"): setProfileLink("/login")
+  }, [loggedIn]);
+
   return (
     <div className="tem-footer">
       <Navbar
-        className="justify-content-center"
         bg="dark"
         variant="dark"
         fixed="bottom"
       >
-        <Row >
-          <Col >
-            <Navbar.Text>
+            <Navbar.Text className="p-3">
               Copyright © 2021
               <br />
               Steve Bateman
             </Navbar.Text>
-          </Col>
-          <Col >
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="d-flex">
@@ -37,13 +38,11 @@ function TemFooter() {
                 <Link className="nav-link" to="/contact">
                   contact
                 </Link>
-                <Link className="nav-link" to="/login">
-                  login
+                <Link className="nav-link" to={profileLink}>
+                  {profile}
                 </Link>
               </Nav>
             </Navbar.Collapse>
-          </Col>
-        </Row>
       </Navbar>
     </div>
   );

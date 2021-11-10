@@ -10,9 +10,26 @@ import Blog from "./components/Blog";
 import Authors from "./components/Authors";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
+import { useState, useEffect } from "react";
 
 function App() {
-  
+  const [loggedIn, setLoggedIn] = useState();
+
+  useEffect(() => {
+    let userInfo = JSON.parse(localStorage.getItem("user"));
+    if (userInfo) {
+      setLoggedIn(userInfo.loggedIn);
+    } else {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: "",
+          loggedIn: false,
+        })
+      );
+    };
+  }, [loggedIn]);
+
   return (
     <div className="App">
       <div className="logo">
@@ -26,7 +43,7 @@ function App() {
         </Switch>
       </div>
       <div className="top-nav">
-        <TemNavbar />
+        <TemNavbar loggedIn={loggedIn} />
       </div>
       <div>
         <Switch>
@@ -43,11 +60,11 @@ function App() {
             <Contact />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
           </Route>
         </Switch>
       </div>
-      <TemFooter />
+      <TemFooter loggedIn={loggedIn} />
     </div>
   );
 }

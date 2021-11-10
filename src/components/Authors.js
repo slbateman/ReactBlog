@@ -23,7 +23,7 @@ function Authors() {
       <AuthorsIcons changeAuthor={changeAuthor} />
       <Switch>
         <Route exact path="/authors" >  
-          <AuthorsFocus index={1} />
+          <AuthorsFocus index={0} />
         </Route>
         <Route path="/authors/" >  
           <AuthorsFocus index={authorIndex}/>

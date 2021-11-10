@@ -1,7 +1,6 @@
-
 .logo {
-    float: left;
-    width: 350px;
+  float: left;
+  width: 350px;
 }
 
 .home-logo,
@@ -10,235 +9,241 @@
 }
 
 .home-logo {
-    height: 200px;
-    object-fit: cover;
+  height: 200px;
+  object-fit: cover;
 }
 
 .tem-logo {
-    height: 70px;
-    object-fit: cover;
+  height: 70px;
+  object-fit: cover;
 }
 
 .top-nav {
-    float: right;
-    width: calc(100% - 350px);
+  float: right;
+  width: calc(100% - 350px);
 }
 
 .navbar {
-    z-index: 1;
-    height: 70px;
+  z-index: 1;
+  height: 70px;
 }
 
 .navbar-collapse {
-    justify-content: center;
+  justify-content: center;
 }
-
 
 .home-article-scroll {
-    background-color: rgb(245, 245, 245);
-    position: absolute;
-    left: 0px;
-    top: 200px;
-    width: 350px;
-    height: calc(100vh - 200px - 70px);
-    overflow-y: scroll;
+  background-color: rgb(245, 245, 245);
+  position: absolute;
+  left: 0px;
+  top: 200px;
+  width: 350px;
+  height: calc(100vh - 200px - 70px);
+  overflow-y: scroll;
 }
 
-.blog-preview{
-    color: black;
+.blog-preview {
+  color: black;
 }
 
 .preview-image {
-    margin-top: 10px;
-    float: left;
-    width: 75px;
-    height: 75px;
-    object-fit: cover;
+  margin-top: 10px;
+  float: left;
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
 }
 
 .preview-text {
-    margin-top: 10px;
-    float: right;
-    width: 230px;
-    height: 75px;
+  margin-top: 10px;
+  float: right;
+  width: 230px;
+  height: 75px;
 }
 
 .preview-title {
-    font-size: 1em;
+  font-size: 1em;
 }
 
-.preview-author-date{
-    float: right;
-    padding-left: 8px;
+.preview-author-date {
+  float: right;
+  padding-left: 8px;
 }
 .preview-author {
-    font-size: .75em;
+  font-size: 0.75em;
 }
 
 .preview-date {
-    font-size: .5em;
+  font-size: 0.5em;
 }
 
 .preview-body {
-    font-size: .5em;
+  font-size: 0.5em;
 }
 
 .home-img-carousel {
-    position: absolute;
-    left: 350px;
-    top: 70px;
-    width: calc(100vw - 350px);
-    height: calc(100vh - 70px - 70px);
+  position: absolute;
+  left: 350px;
+  top: 70px;
+  width: calc(100vw - 350px);
+  height: calc(100vh - 70px - 70px);
 }
 
 .carousel-img {
-    width: calc(100vw - 350px);
-    height: calc(100vh - 70px - 70px);
-    object-fit: cover;
+  width: calc(100vw - 350px);
+  height: calc(100vh - 70px - 70px);
+  object-fit: cover;
 }
 
 .blog-previous {
-    color: rgb(124, 124, 124);
-    position: fixed;
-    margin: 10px;
-    margin-top: 25vh;
-    width: 180px;
-    text-align: center;
+  color: rgb(124, 124, 124);
+  position: fixed;
+  margin: 10px;
+  margin-top: 25vh;
+  width: 180px;
+  text-align: center;
 }
 
 .blog-next {
-    color: rgb(124, 124, 124);
-    position: fixed;
-    right: 0;
-    margin: 10px;
-    margin-top: 25vh;
-    width: 180px;
-    text-align: center;
+  color: rgb(124, 124, 124);
+  position: fixed;
+  right: 0;
+  margin: 10px;
+  margin-top: 25vh;
+  width: 180px;
+  text-align: center;
 }
 
 .top-button {
-    /* visibility: hidden; */
-    border: none;
-    background-color: rgb(31, 31, 31);
-    display: hidden;
-    color: rgb(221, 221, 221);
-    position: fixed;
-    right: 0;
-    margin-right: 52px;
-    margin-top: 65vh;
-    width: 95px;
-    border-radius: 5px;
-    text-align: center;
+  /* visibility: hidden; */
+  border: none;
+  background-color: rgb(31, 31, 31);
+  display: hidden;
+  color: rgb(221, 221, 221);
+  position: fixed;
+  right: 0;
+  margin-right: 52px;
+  margin-top: 65vh;
+  width: 95px;
+  border-radius: 5px;
+  text-align: center;
 }
 
 .blog-article {
-    margin: auto;
-    text-align: center;
-    width: calc(100vw - 220px - 220px);
-    margin-bottom: 90px
+  margin: auto;
+  text-align: center;
+  width: calc(100vw - 220px - 220px);
+  margin-bottom: 90px;
 }
 
 .blog-article-img {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: calc(100vw - 220px - 220px);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: calc(100vw - 220px - 220px);
 }
 
 .blog-article-body {
-    text-align: left;
+  text-align: left;
 }
 
 .blog-comments {
-    text-align: left;
+  text-align: left;
 }
 
 .blog-comment-area {
-    background-color: rgb(199, 199, 199);
+  background-color: rgb(199, 199, 199);
 }
 
 .reply-button {
-    margin: 10px;
+  margin: 10px;
 }
 
 .comment-reply {
-    margin-left: 100px;
+  margin-left: 100px;
 }
 
 .is-visible {
-    display: block;
+  display: block;
 }
 
 .is-invisible {
-    display: none;
+  display: none;
 }
 
-.blog-reply-area  {
-    margin-left: 100px;
+.blog-reply-area {
+  margin-left: 100px;
 }
 
-.authors-img, .contact-img {
-    height: calc(100vh - 70px - 70px);
-    width: 40%;
-    object-fit: cover;
+.authors-img,
+.contact-img {
+  height: calc(100vh - 70px - 70px);
+  width: 40%;
+  object-fit: cover;
 }
 
-.authors-icons, .authors-focus {
-    width: 60%;
-    float: right;
-    text-align: center;
+.authors-icons,
+.authors-focus {
+  width: 60%;
+  float: right;
+  text-align: center;
 }
 
 .authors-icons-block {
-    display: inline-block;
+  display: inline-block;
 }
 
 .author-icon-img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 10px;
-    margin-top: 20px;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 10px;
+  margin-top: 20px;
 }
 
 .author-headshot {
-    float: right;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin: 10px;
-    margin-top: 10px;
-    margin-right: 50px;
+  float: right;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 10px;
+  margin-top: 10px;
+  margin-right: 50px;
 }
 
 .author-name {
-    margin: 20px;
-    margin-top: 80px;
+  margin: 20px;
+  margin-top: 80px;
 }
 .author-bio {
-    float: right;
-    text-align: left;
-    width: 96%;
-    height: calc(100vh - 432px);
-    margin: 20px;
-    margin-right: 0px;
-    overflow-y: scroll;
+  float: right;
+  text-align: left;
+  width: 96%;
+  height: calc(100vh - 432px);
+  margin: 20px;
+  margin-right: 0px;
+  overflow-y: scroll;
 }
 
 .contact-form {
-    float: right;
-    width: 60%;
+  float: right;
+  width: 60%;
 }
 
 .contact-form-align {
-    width: 60%;
-    margin: 20%;
-    margin-top: 10%;
+  width: 60%;
+  margin: 20%;
+  margin-top: 10%;
 }
 
-.login-form, .login-signup {
-    width: 350px;
-    margin: auto;
-    padding-top: 15vh;
+.login-form,
+.login-signup,
+.login-profile,
+.login-profile-edit {
+  width: 350px;
+  margin: auto;
+  padding-top: 15vh;
+  margin-bottom: 90px;
 }
+
