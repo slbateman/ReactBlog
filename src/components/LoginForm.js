@@ -1,14 +1,17 @@
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Users from "../data/Users"
 
-function LoginForm({email, setEmail, setLoggedIn, userIndex, setUserIndex }) {
+function LoginForm({email, setEmail, setLoggedIn, loggedIn, userIndex, setUserIndex }) {
   const [password, setPassword] = useState("");
+  let history = useHistory()
+  const indexCheck = (e) => {
+    setUserIndex(Users.findIndex((element) => element.email === e));
+    console.log(userIndex)
+  }
 
   const userAuth = () => {
-    setUserIndex(Users.findIndex((element) => element.email === email))
-    console.log(Users[userIndex].password)
     if (email === Users[userIndex].email) {
       console.log(email);
       if (password === Users[userIndex].password) {
@@ -21,11 +24,11 @@ function LoginForm({email, setEmail, setLoggedIn, userIndex, setUserIndex }) {
             loggedIn: true,
           })
         );
-        window.location.replace('/login/profile');
+        history.push('/login/profile')
       } else console.log("password does not match provided email")
     } else console.log("user not in system")
-    setEmail("");
-    setPassword("");
+    // setEmail("");
+    // setPassword("");
   };
 
   return (
@@ -44,7 +47,10 @@ function LoginForm({email, setEmail, setLoggedIn, userIndex, setUserIndex }) {
                 type="email"
                 placeholder="Enter email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  indexCheck(e.target.value);
+                }}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">

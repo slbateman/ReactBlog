@@ -2,24 +2,31 @@ import LoginForm from "./LoginForm";
 import LoginSignup from "./LoginSignup";
 import LoginProfile from "./LoginProfile";
 import LoginProfileEdit from "./LoginProfileEdit";
-import { Route, Switch } from "react-router-dom";
-import { useState } from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Users from "../data/Users";
 
 function Login({ loggedIn, setLoggedIn }) {
+  
   const [email, setEmail] = useState("");
-  const [userIndex, setUserIndex] = useState(0);
+  const userInfo = JSON.parse(localStorage.getItem("user"))
+  const [userIndex, setUserIndex] = useState(Users.findIndex((element) => element.email === userInfo.email));
 
   return (
     <div className="login-page">
       <Switch>
         <Route exact path="/login">
-          <LoginForm
-            email={email}
-            setEmail={setEmail}
-            setLoggedIn={setLoggedIn}
-            userIndex={userIndex}
-            setUserIndex={setUserIndex}
-          />
+          {loggedIn ? (
+            <Redirect to="/login/profile" />
+          ) : (
+            <LoginForm
+              email={email}
+              setEmail={setEmail}
+              setLoggedIn={setLoggedIn}
+              userIndex={userIndex}
+              setUserIndex={setUserIndex}
+            />
+          )}
         </Route>
         <Route path="/login/newUser">
           <LoginSignup
@@ -31,18 +38,30 @@ function Login({ loggedIn, setLoggedIn }) {
           />
         </Route>
         <Route exact path="/login/profile">
-          <LoginProfile
-            loggedIn={loggedIn}
-            userIndex={userIndex}
-            setLoggedIn={setLoggedIn}
-          />
+          {loggedIn ? (
+            <LoginProfile
+              email={email}
+              setEmail={setEmail}
+              loggedIn={loggedIn}
+              userIndex={userIndex}
+              setUserIndex={setUserIndex}
+              setLoggedIn={setLoggedIn}
+            />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
         <Route path="/login/profile/edit">
-          <LoginProfileEdit
-            loggedIn={loggedIn}
-            userIndex={userIndex}
-            setLoggedIn={setLoggedIn}
-          />
+          {loggedIn ? (
+            <LoginProfileEdit
+              loggedIn={loggedIn}
+              userIndex={userIndex}
+              setUserIndex={setUserIndex}
+              setLoggedIn={setLoggedIn}
+            />
+          ) : (
+            <Redirect to="/" />
+          )}
         </Route>
       </Switch>
     </div>

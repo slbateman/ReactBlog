@@ -1,8 +1,11 @@
 import Users from "../data/Users";
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
-import { useState } from "react";
+import { useState} from "react";
+import { useHistory } from "react-router";
 
-const LoginProfileEdit = ({ userIndex }) => {
+const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex }) => {
+
+  let history = useHistory()
   const [firstName, setFirstName] = useState(Users[userIndex].fName);
   const [lastName, setLastName] = useState(Users[userIndex].lName);
   const [email, setEmail] = useState(Users[userIndex].email);
@@ -12,15 +15,15 @@ const LoginProfileEdit = ({ userIndex }) => {
 
   const userUpdate = () => {
     if (oldPassword === "") {
-      window.location.replace("/login/profile");
+      history.push("/login/profile");
     } else if (
       oldPassword === Users[userIndex].password &&
       password1 === password2
     ) {
-      window.location.replace("/login/profile");
+      history.push("/login/profile");
     } else {
       console.log("passwords are incorrect");
-      window.location.replace("/login/profile");
+      history.push("/login/profile");
     }
   };
 

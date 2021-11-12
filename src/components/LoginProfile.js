@@ -1,8 +1,18 @@
 import Users from "../data/Users";
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom";
+import { useEffect } from "react";
 
-const LoginProfile = ({ userIndex, setLoggedIn }) => {
+const LoginProfile = ({ email, loggedIn, userIndex, setLoggedIn, setUserIndex }) => {
+  
+  let history = useHistory()
+    console.log(userIndex);
+  useEffect(() => {
+    if (loggedIn === false) {
+      history.push("/login");
+    }
+  }, [loggedIn, history]);
+
   const logout = () => {
     setLoggedIn(false);
     localStorage.setItem(
@@ -12,7 +22,7 @@ const LoginProfile = ({ userIndex, setLoggedIn }) => {
         loggedIn: false,
       })
     );
-    window.location.replace("/login");
+    history.push("/login");
   };
 
   return (
@@ -66,9 +76,9 @@ const LoginProfile = ({ userIndex, setLoggedIn }) => {
               />
             </Form.Group>
             <Link to="/login/profile/edit">
-            <Button className="m-1" variant="primary" >
-              Edit Profile
-            </Button>
+              <Button className="m-1" variant="primary">
+                Edit Profile
+              </Button>
             </Link>
             <br />
             <Button className="m-1" variant="primary" onClick={() => logout()}>

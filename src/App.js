@@ -13,7 +13,7 @@ import Login from "./components/Login";
 import { useState, useEffect } from "react";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState();
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     let userInfo = JSON.parse(localStorage.getItem("user"));
