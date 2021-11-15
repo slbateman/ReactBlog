@@ -240,10 +240,15 @@
 .login-form,
 .login-signup,
 .login-profile,
-.login-profile-edit {
+.login-profile-edit,
+.new-article  {
   width: 350px;
   margin: auto;
   padding-top: 15vh;
   margin-bottom: 90px;
 }
 
+.new-article {
+  width: 75%;
+  
+}

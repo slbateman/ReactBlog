@@ -1,24 +1,28 @@
-import ArticleList from "../data/ArticleList";
 import BlogComments from "./BlogComments";
 
-function BlogArticle({index}) {
+function BlogArticle({ index, blogBase }) {
+
+  console.log("--Blog Article--")
   
   return (
     <div className="blog-article">
       <img
         className="blog-article-img"
-        src={ArticleList[index].image}
-        alt={ArticleList[index].imageAlt}
+        src={blogBase[index].image}
+        alt={blogBase[index].imageAlt}
       />
-      <h1 className="blog-article-title">{ArticleList[index].title}</h1>
-      <h4 className="blog-article-author">By: {ArticleList[index].author}</h4>
-      <h6 className="blog-article-date">Date: {ArticleList[index].date}</h6>
-      <div>{ArticleList[index].body.map((data) => (
-      <p className="blog-article-body" key={data} >{data} </p>
-      ))}
+      <h1 className="blog-article-title">{blogBase[index].title}</h1>
+      <h4 className="blog-article-author">By: {blogBase[index].author}</h4>
+      <h6 className="blog-article-date">Date: {blogBase[index].date}</h6>
+      <div>
+        {blogBase[index].body.map((data, i) => (
+          <p className="blog-article-body" key={"body" + i}>
+            {data}{" "}
+          </p>
+        ))}
       </div>
       <br />
-      <BlogComments index={index} />
+      <BlogComments index={index} blogBase={blogBase} />
     </div>
   );
 }

@@ -1,15 +1,16 @@
-import ArticleList from "../data/ArticleList";
 import Comments from "../data/Comments";
 import BlogCommentForm from "./BlogCommentForm";
 import BlogCommentReplyForm from "./BlockCommentReplyForm";
 import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
-function BlogComments({ index }) {
+function BlogComments({ index, blogBase }) {
 
+  console.log("--Blog Comments--")
+  
   let articleComments = [];
   Comments.map((data) => {
-    if (ArticleList[index].articleID === data.articleID) {
+    if (blogBase[index].articleID === data.articleID) {
       articleComments.push([
         data.user,
         data.comment,
@@ -24,7 +25,7 @@ function BlogComments({ index }) {
 
   return (
     <div className="blog-comments">
-      <BlogCommentForm index={index} />
+      <BlogCommentForm index={index} blogBase={blogBase} />
       <br />
       <br />
       {articleComments.map((data, i) => (

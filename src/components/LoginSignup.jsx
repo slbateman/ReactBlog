@@ -45,8 +45,6 @@ function LoginSignup({
         },
       ];
       localStorage.setItem("users", JSON.stringify(newUserArr));
-      setUserBase(newUserArr);
-      setLoggedIn(true);
       localStorage.setItem(
         "user",
         JSON.stringify({
@@ -55,7 +53,9 @@ function LoginSignup({
         })
       );
       setUserInfo(JSON.parse(localStorage.getItem("user")));
-      history.push("/login/profile");
+      setUserBase(newUserArr);
+      setLoggedIn(true);
+      history.push("/");
     } else {
       console.log(userName);
       console.log(firstName);

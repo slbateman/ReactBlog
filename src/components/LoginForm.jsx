@@ -19,6 +19,7 @@ function LoginForm({
   let history = useHistory();
 
   const indexCheck = (e) => {
+    setUserIndex(userBase.findIndex((element) => element.email === e));
     localStorage.setItem(
       "user",
       JSON.stringify({

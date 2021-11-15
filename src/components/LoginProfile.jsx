@@ -11,10 +11,10 @@ const LoginProfile = ({
   setUserIndex,
   userBase,
 }) => {
+  
   console.log("--Login Profile--");
 
   let history = useHistory();
-  console.log(userIndex);
   useEffect(() => {
     if (loggedIn === false) {
       history.push("/login");
@@ -37,7 +37,9 @@ const LoginProfile = ({
     <div className="login-profile">
       <Row className="justify-content-center">
         <Col>
+        <Link to="/newArticle" >
           <Button>Add New Article</Button>
+          </Link>
           <br />
           <br />
           <Form>

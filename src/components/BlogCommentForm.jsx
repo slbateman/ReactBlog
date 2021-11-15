@@ -1,11 +1,13 @@
 import Form from "../../node_modules/react-bootstrap/Form";
 import Button from "../../node_modules/react-bootstrap/Button";
-import ArticleList from "../data/ArticleList";
-import { useState } from "react"
+import { useState } from "react";
 
-function BlogCommentForm({index}) {
+function BlogCommentForm({ index, blogBase }) {
+
+  console.log("--Blog CommentForm--")
+    
   function submitComment() {
-    console.log(ArticleList[index].articleID);
+    console.log(blogBase[index].articleID);
     console.log(commentValue);
     setCommentValue("");
   }

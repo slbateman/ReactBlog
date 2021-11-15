@@ -1,11 +1,13 @@
 import HomeArticleScroll from "./HomeArticleScroll";
 import HomeImgCarousel from "./HomeImgCarousel";
 
-function Home() {
+function Home({ blogBase }) {
+  console.log("--Home--");
+
   return (
     <div className="home">
-      <HomeArticleScroll />
-      <HomeImgCarousel  />
+      <HomeArticleScroll blogBase={blogBase} />
+      <HomeImgCarousel blogBase={blogBase} />
     </div>
   );
 }

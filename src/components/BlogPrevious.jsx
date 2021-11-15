@@ -1,21 +1,23 @@
-import ArticleList from "../data/ArticleList";
 import { Link } from "react-router-dom";
 
-function BlogPrevious({ index, changeArticle }) {
+function BlogPrevious({ index, changeArticle, blogBase }) {
+
+  console.log("--Blog Previous--")
+  
   let previousBlog;
-  if (index < ArticleList.length) {
-    let previousArticlePath = `/blog/${ArticleList[index].date}`;
+  if (index < blogBase.length) {
+    let previousArticlePath = `/blog/${blogBase[index].date}`;
     previousBlog = (
       <Link
         onClick={() => {
-          changeArticle(ArticleList[index].date);
+          changeArticle(blogBase[index].date);
         }}
         to={previousArticlePath}
       >
         <div className="blog-previous">
           <h4>PREVIOUS</h4>
-          <h5>{ArticleList[index].title}</h5>
-          <h6>{ArticleList[index].date}</h6>
+          <h5>{blogBase[index].title}</h5>
+          <h6>{blogBase[index].date}</h6>
         </div>
       </Link>
     );
