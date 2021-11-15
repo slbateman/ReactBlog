@@ -1,12 +1,21 @@
-import Users from "../data/Users";
+// import Users from "../data/Users";
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 
-const LoginProfile = ({ email, loggedIn, userIndex, setLoggedIn, setUserIndex }) => {
-  
-  let history = useHistory()
-    console.log(userIndex);
+const LoginProfile = ({
+  email,
+  loggedIn,
+  userIndex,
+  setLoggedIn,
+  setUserIndex,
+  userBase,
+}) => {
+
+  console.log("--Login Profile--");
+
+  let history = useHistory();
+  console.log(userIndex);
   useEffect(() => {
     if (loggedIn === false) {
       history.push("/login");
@@ -36,7 +45,7 @@ const LoginProfile = ({ email, loggedIn, userIndex, setLoggedIn, setUserIndex })
               <Form.Control
                 id="inlineFormInputGroup"
                 placeholder="Username"
-                value={Users[userIndex].userName}
+                value={userBase[userIndex].userName}
                 readOnly
               />
             </InputGroup>
@@ -44,7 +53,7 @@ const LoginProfile = ({ email, loggedIn, userIndex, setLoggedIn, setUserIndex })
               <Form.Label>Role</Form.Label>
               <Form.Control
                 placeholder="Admin"
-                value={Users[userIndex].role}
+                value={userBase[userIndex].role}
                 readOnly
               />
             </Form.Group>
@@ -53,7 +62,7 @@ const LoginProfile = ({ email, loggedIn, userIndex, setLoggedIn, setUserIndex })
               <Form.Label>First Name</Form.Label>
               <Form.Control
                 placeholder="John"
-                value={Users[userIndex].fName}
+                value={userBase[userIndex].fName}
                 readOnly
               />
             </Form.Group>
@@ -61,7 +70,7 @@ const LoginProfile = ({ email, loggedIn, userIndex, setLoggedIn, setUserIndex })
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 placeholder="Doe"
-                value={Users[userIndex].lName}
+                value={userBase[userIndex].lName}
                 readOnly
               />
             </Form.Group>
@@ -71,7 +80,7 @@ const LoginProfile = ({ email, loggedIn, userIndex, setLoggedIn, setUserIndex })
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-                value={Users[userIndex].email}
+                value={userBase[userIndex].email}
                 readOnly
               />
             </Form.Group>

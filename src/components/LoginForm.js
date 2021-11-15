@@ -1,40 +1,57 @@
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Users from "../data/Users"
+// import Users from "../data/Users"
 
-function LoginForm({email, setEmail, setLoggedIn, loggedIn, userIndex, setUserIndex }) {
+function LoginForm({
+  email,
+  setEmail,
+  setLoggedIn,
+  loggedIn,
+  userIndex,
+  setUserIndex,
+  userBase,
+}) {
+
+  console.log("--Login Form--")
+
   const [password, setPassword] = useState("");
-  let history = useHistory()
+  let history = useHistory();
+
   const indexCheck = (e) => {
-    setUserIndex(Users.findIndex((element) => element.email === e));
-    console.log(userIndex)
-  }
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        email: e,
+        loggedIn: false,
+      })
+    );
+  };
 
   const userAuth = () => {
-    if (email === Users[userIndex].email) {
-      console.log(email);
-      if (password === Users[userIndex].password) {
-        console.log(password);
-        setLoggedIn(true);
-        localStorage.setItem(
-          "user",
-          JSON.stringify({
-            email: email,
-            loggedIn: true,
-          })
-        );
-        history.push('/login/profile')
-      } else console.log("password does not match provided email")
-    } else console.log("user not in system")
-    // setEmail("");
-    // setPassword("");
+    if (userIndex >= 0) {
+      if (email === userBase[userIndex].email) {
+        console.log(email);
+        if (password === userBase[userIndex].password) {
+          console.log(password);
+          setLoggedIn(true);
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              email: email,
+              loggedIn: true,
+            })
+          );
+          history.push("/login/profile");
+        } else console.log("password does not match provided email");
+      } else console.log("user not in system");
+    } else console.log("user does not exist");
   };
 
   return (
     <div className="login-form">
       <Row className="justify-content-center">
-        <Col >
+        <Col>
           <Form
             onSubmit={(e) => {
               e.preventDefault();

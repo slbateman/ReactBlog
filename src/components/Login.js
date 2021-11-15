@@ -4,13 +4,19 @@ import LoginProfile from "./LoginProfile";
 import LoginProfileEdit from "./LoginProfileEdit";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Users from "../data/Users";
+// import Users from "../data/Users";
 
-function Login({ loggedIn, setLoggedIn }) {
-  
+function Login({ loggedIn, setLoggedIn, userBase, setUserBase, userInfo, setUserInfo }) {
+  console.log("--Login--")
   const [email, setEmail] = useState("");
-  const userInfo = JSON.parse(localStorage.getItem("user"))
-  const [userIndex, setUserIndex] = useState(Users.findIndex((element) => element.email === userInfo.email));
+  // setUserInfo(JSON.parse(localStorage.getItem("user")));
+  const [userIndex, setUserIndex] = useState(
+    userBase.findIndex((element) => element.email === userInfo.email)
+  );
+
+  useEffect(() => {
+    setUserIndex(userBase.findIndex((element) => element.email === userInfo.email))
+  }, [userBase, userInfo])
 
   return (
     <div className="login-page">
@@ -25,6 +31,8 @@ function Login({ loggedIn, setLoggedIn }) {
               setLoggedIn={setLoggedIn}
               userIndex={userIndex}
               setUserIndex={setUserIndex}
+              userBase={userBase}
+              setUserBase={setUserBase}
             />
           )}
         </Route>
@@ -35,6 +43,10 @@ function Login({ loggedIn, setLoggedIn }) {
             setLoggedIn={setLoggedIn}
             userIndex={userIndex}
             setUserIndex={setUserIndex}
+            userBase={userBase}
+            setUserBase={setUserBase}
+            userInfo={userInfo}
+            setUserInfo={setUserInfo}
           />
         </Route>
         <Route exact path="/login/profile">
@@ -46,6 +58,8 @@ function Login({ loggedIn, setLoggedIn }) {
               userIndex={userIndex}
               setUserIndex={setUserIndex}
               setLoggedIn={setLoggedIn}
+              userBase={userBase}
+              setUserBase={setUserBase}
             />
           ) : (
             <Redirect to="/" />
@@ -58,6 +72,8 @@ function Login({ loggedIn, setLoggedIn }) {
               userIndex={userIndex}
               setUserIndex={setUserIndex}
               setLoggedIn={setLoggedIn}
+              userBase={userBase}
+              setUserBase={setUserBase}
             />
           ) : (
             <Redirect to="/" />

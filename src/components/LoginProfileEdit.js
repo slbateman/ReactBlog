@@ -3,12 +3,12 @@ import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { useState} from "react";
 import { useHistory } from "react-router";
 
-const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex }) => {
+const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex, userBase }) => {
 
   let history = useHistory()
-  const [firstName, setFirstName] = useState(Users[userIndex].fName);
-  const [lastName, setLastName] = useState(Users[userIndex].lName);
-  const [email, setEmail] = useState(Users[userIndex].email);
+  const [firstName, setFirstName] = useState(userBase[userIndex].fName);
+  const [lastName, setLastName] = useState(userBase[userIndex].lName);
+  const [email, setEmail] = useState(userBase[userIndex].email);
   const [oldPassword, setOldPassword] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
@@ -17,7 +17,7 @@ const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex }) => {
     if (oldPassword === "") {
       history.push("/login/profile");
     } else if (
-      oldPassword === Users[userIndex].password &&
+      oldPassword === userBase[userIndex].password &&
       password1 === password2
     ) {
       history.push("/login/profile");
@@ -38,7 +38,7 @@ const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex }) => {
               <Form.Control
                 id="inlineFormInputGroup"
                 placeholder="Username"
-                value={Users[userIndex].userName}
+                value={userBase[userIndex].userName}
                 readOnly
               />
             </InputGroup>
@@ -46,7 +46,7 @@ const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex }) => {
               <Form.Label>Role</Form.Label>
               <Form.Control
                 placeholder="Admin"
-                value={Users[userIndex].role}
+                value={userBase[userIndex].role}
                 readOnly
               />
             </Form.Group>

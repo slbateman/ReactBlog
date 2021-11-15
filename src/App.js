@@ -11,12 +11,22 @@ import Authors from "./components/Authors";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import { useState, useEffect } from "react";
+import Users from "./data/Users";
 
 function App() {
+
+  console.log("--App--")
+
   const [loggedIn, setLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
+  const [userBase, setUserBase] = useState(
+    JSON.parse(localStorage.getItem("users"))
+  );
+  
 
   useEffect(() => {
-    let userInfo = JSON.parse(localStorage.getItem("user"));
     if (userInfo) {
       setLoggedIn(userInfo.loggedIn);
     } else {
@@ -27,8 +37,15 @@ function App() {
           loggedIn: false,
         })
       );
-    };
-  }, [loggedIn]);
+      setUserInfo(JSON.parse(localStorage.getItem("user")))
+    }
+    if (!userBase) {
+      localStorage.setItem("users", JSON.stringify(Users));
+      setUserBase(JSON.parse(localStorage.getItem("users")))
+    } else {
+      localStorage.setItem("users", JSON.stringify(userBase))
+    }
+  }, [userInfo, userBase]);
 
   return (
     <div className="App">
@@ -51,7 +68,12 @@ function App() {
             <Home />
           </Route>
           <Route path="/blog">
-            <Blog />
+            <Blog
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              userBase={userBase}
+              setUserBase={setUserBase}
+            />
           </Route>
           <Route path="/authors">
             <Authors />
@@ -60,7 +82,14 @@ function App() {
             <Contact />
           </Route>
           <Route path="/login">
-            <Login loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+            <Login
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              userBase={userBase}
+              setUserBase={setUserBase}
+              userInfo={userInfo}
+              setUSerInfo={setUserInfo}
+            />
           </Route>
         </Switch>
       </div>

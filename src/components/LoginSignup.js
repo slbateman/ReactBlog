@@ -1,14 +1,30 @@
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-function LoginSignup({ email, setEmail }) {
+function LoginSignup({
+  email,
+  setEmail,
+  userBase,
+  userInfo,
+  setUserInfo,
+  setUserBase,
+  userIndex,
+  setUserIndex,
+  loggedIn,
+  setLoggedIn,
+}) {
+
+  console.log("--SignUp--")
+
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
+  let history = useHistory();
 
-  const userAuth = () => {
+  const userCreate = () => {
     if (password1 === password2) {
       console.log(userName);
       console.log(firstName);
@@ -16,6 +32,30 @@ function LoginSignup({ email, setEmail }) {
       console.log(email);
       console.log(password1);
       console.log(password2);
+      let newUserArr = [
+        ...userBase,
+        {
+          userName: userName,
+          fName: firstName,
+          lName: lastName,
+          email: email,
+          password: password1,
+          role: "user",
+          avatar: "",
+        },
+      ];
+      localStorage.setItem("users", JSON.stringify(newUserArr));
+      setUserBase(newUserArr);
+      setLoggedIn(true);
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: email,
+          loggedIn: true,
+        })
+      );
+      setUserInfo(JSON.parse(localStorage.getItem("user")));
+      history.push("/login/profile");
     } else {
       console.log(userName);
       console.log(firstName);
@@ -25,22 +65,16 @@ function LoginSignup({ email, setEmail }) {
       console.log(password2);
       console.log("passwords do not match");
     }
-    setEmail("");
-    setPassword1("");
-    setPassword2("");
-    setUserName("");
-    setFirstName("");
-    setLastName("");
   };
 
   return (
     <div className="login-signup">
       <Row className="justify-content-center">
-        <Col >
+        <Col>
           <Form
             onSubmit={(e) => {
               e.preventDefault();
-              userAuth();
+              userCreate();
             }}
           >
             <Form.Label htmlFor="inlineFormInputGroup">Username</Form.Label>
@@ -76,7 +110,14 @@ function LoginSignup({ email, setEmail }) {
                 type="email"
                 placeholder="Enter email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setUserIndex(
+                    userBase.findIndex(
+                      (element) => element.email === e.target.value
+                    )
+                  );
+                }}
               />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formPassword">
