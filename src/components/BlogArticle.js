@@ -14,7 +14,7 @@ function BlogArticle({index}) {
       <h4 className="blog-article-author">By: {ArticleList[index].author}</h4>
       <h6 className="blog-article-date">Date: {ArticleList[index].date}</h6>
       <div>{ArticleList[index].body.map((data) => (
-      <p className="blog-article-body">{data} </p>
+      <p className="blog-article-body" key={data} >{data} </p>
       ))}
       </div>
       <br />

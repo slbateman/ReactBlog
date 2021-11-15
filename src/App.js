@@ -10,9 +10,43 @@ import Blog from "./components/Blog";
 import Authors from "./components/Authors";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
+import { useState, useEffect } from "react";
+import Users from "./data/Users";
 
 function App() {
+
+  console.log("--App--")
+
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [userInfo, setUserInfo] = useState(
+    JSON.parse(localStorage.getItem("user"))
+  );
+  const [userBase, setUserBase] = useState(
+    JSON.parse(localStorage.getItem("users"))
+  );
   
+
+  useEffect(() => {
+    if (userInfo) {
+      setLoggedIn(userInfo.loggedIn);
+    } else {
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          email: "",
+          loggedIn: false,
+        })
+      );
+      setUserInfo(JSON.parse(localStorage.getItem("user")))
+    }
+    if (!userBase) {
+      localStorage.setItem("users", JSON.stringify(Users));
+      setUserBase(JSON.parse(localStorage.getItem("users")))
+    } else {
+      localStorage.setItem("users", JSON.stringify(userBase))
+    }
+  }, [userInfo, userBase]);
+
   return (
     <div className="App">
       <div className="logo">
@@ -26,7 +60,7 @@ function App() {
         </Switch>
       </div>
       <div className="top-nav">
-        <TemNavbar />
+        <TemNavbar loggedIn={loggedIn} />
       </div>
       <div>
         <Switch>
@@ -34,7 +68,12 @@ function App() {
             <Home />
           </Route>
           <Route path="/blog">
-            <Blog />
+            <Blog
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              userBase={userBase}
+              setUserBase={setUserBase}
+            />
           </Route>
           <Route path="/authors">
             <Authors />
@@ -43,11 +82,18 @@ function App() {
             <Contact />
           </Route>
           <Route path="/login">
-            <Login />
+            <Login
+              loggedIn={loggedIn}
+              setLoggedIn={setLoggedIn}
+              userBase={userBase}
+              setUserBase={setUserBase}
+              userInfo={userInfo}
+              setUSerInfo={setUserInfo}
+            />
           </Route>
         </Switch>
       </div>
-      <TemFooter />
+      <TemFooter loggedIn={loggedIn} />
     </div>
   );
 }

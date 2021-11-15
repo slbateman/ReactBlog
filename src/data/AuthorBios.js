@@ -1,8 +1,19 @@
+import stevebateman from "../images/stevebateman.jpeg"
 import alfredhitchcock from "../images/alfredhitchcock.jpeg";
 import hrgiger from "../images/hrgiger.jpeg";
 import vincentprice from "../images/vincentprice.jpeg";
 
 const AuthorBios = [
+  {
+    fName: "Steve",
+    lName: "Bateman",
+    image: stevebateman,
+    bio: [
+      "Steve Bateman (6 October 1984 - present) is an adaptive Jack-of-all-trades kind of person. He has proven his ability to learn new topics and implement solutions quickly and efficiently. Bateman has shown the most proficiency while under pressure and stress. However, he does get bored when work becomes monotonous or repetitive. ",
+      "Born in Idaho, USA, Bateman grew up in a family of 8 children. His 7 siblings were all female. Though difficult at times, Bateman gain great insight and perspective living in a house full of women. His father wasn't around much as he worked in highway construction and only came home in the winter months. Bateman learned to adapt quickly while his skills in empathy grew as the need to ready body language and voice cues increased. While technically an introvert, he developed a desire to put on a show and dance with friends and family. ",
+      "Steve has worked in many industries. Fresh out of high school, he began is work as a plumber. He then enlisted in the Air Force and entered the field of Electronics Signals Analyst. After 4 years of enlistment, he left for college where he obtained a Master Degree in Information Technology. The then got a job as a repair technician in the oil and gas industry. When he left, he found a job doing automation and production management for a machining shop. He now spends his time learning programming languages and looks to enter the software industry. ",
+    ],
+  },
   {
     fName: "Alfred",
     lName: "Hitchcock",

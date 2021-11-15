@@ -6,17 +6,21 @@ import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
 function BlogComments({ index }) {
-  // const [hiddenState, setHiddenState] = useState({display: 'none'})
 
   let articleComments = [];
   Comments.map((data) => {
     if (ArticleList[index].articleID === data.articleID) {
-      articleComments.push([data.user, data.comment, data.reply, data.commentID]);
+      articleComments.push([
+        data.user,
+        data.comment,
+        data.reply,
+        data.commentID,
+      ]);
     }
     return articleComments;
   });
 
-  const [buttonCommentID, setButtonCommentID] = useState("")
+  const [buttonCommentID, setButtonCommentID] = useState("");
 
   return (
     <div className="blog-comments">
@@ -24,7 +28,7 @@ function BlogComments({ index }) {
       <br />
       <br />
       {articleComments.map((data, i) => (
-        <div className="comment">
+        <div className="comment" key={data} >
           <hr />
           <h5>{data[0]}</h5>
           {data[1]}
@@ -35,18 +39,23 @@ function BlogComments({ index }) {
             type="submit"
             onClick={(e) => {
               e.preventDefault();
-              setButtonCommentID(data[3])
+              setButtonCommentID(data[3]);
             }}
           >
             reply
           </Button>
           <div>
-            <BlogCommentReplyForm commentID={data[3]} i={i} buttonCommentID={buttonCommentID} />
+            <BlogCommentReplyForm
+              commentID={data[3]}
+              i={i}
+              buttonCommentID={buttonCommentID}
+              setButtonCommentID={setButtonCommentID}
+            />
           </div>
           <br />
           <div className="comment-reply">
             {data[2].map((subData) => (
-              <div>
+              <div key={subData} >
                 <hr />
                 <h5>{subData.user}</h5>
                 {subData.comment}
