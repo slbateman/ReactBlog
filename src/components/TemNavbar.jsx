@@ -1,7 +1,7 @@
-import Navbar from "../../node_modules/react-bootstrap/Navbar";
-import Nav from "../../node_modules/react-bootstrap/Nav";
-import Button from "../../node_modules/react-bootstrap/Button";
-import Container from "../../node_modules/react-bootstrap/Container";
+import Navbar from "react-bootstrap/esm/Navbar";
+import Nav from "react-bootstrap/esm/Nav";
+import Button from "react-bootstrap/esm/Button";
+import Container from "react-bootstrap/esm/Container";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 

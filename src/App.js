@@ -10,6 +10,7 @@ import Blog from "./components/Blog";
 import Authors from "./components/Authors";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
+import NewArticle from "./components/NewArticle";
 import { useState, useEffect } from "react";
 import Users from "./data/Users";
 
@@ -90,6 +91,9 @@ function App() {
               userInfo={userInfo}
               setUSerInfo={setUserInfo}
             />
+          </Route>
+          <Route>
+            <NewArticle />
           </Route>
         </Switch>
       </div>

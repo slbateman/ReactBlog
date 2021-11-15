@@ -11,7 +11,6 @@ const LoginProfile = ({
   setUserIndex,
   userBase,
 }) => {
-
   console.log("--Login Profile--");
 
   let history = useHistory();
@@ -38,6 +37,9 @@ const LoginProfile = ({
     <div className="login-profile">
       <Row className="justify-content-center">
         <Col>
+          <Button>Add New Article</Button>
+          <br />
+          <br />
           <Form>
             <Form.Label htmlFor="inlineFormInputGroup">Username</Form.Label>
             <InputGroup className="mb-2">
