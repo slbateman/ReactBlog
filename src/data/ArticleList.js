@@ -15,7 +15,7 @@ const ArticleList = [
         image: image01,
         imageAlt: "Scary Monster 1",
         title: "Mythical American Monsters",
-        author: "Vincent Price",
+        author: "Steve Bateman",
         date: "2021-10-27",
         body: [`Every culture around the globe creates mythical tales. And a lot of them involve scary creatures: Scotland's Loch Ness Monster, for instance or the Himalayans' Yeti, or Abominable Snowman. It's part of our human DNA.
         But why is that? "We tell ourselves stories because we (humans) are storytelling animals," said Shira Chess, assistant mass media professor at the University of Georgia in a Washington Post article. "And, to that end, horror stories take on a specific significance and importance because they function metaphorically — the horror stories that are the best are often metaphors for other issues that affect our lives on both cultural and personal levels."
