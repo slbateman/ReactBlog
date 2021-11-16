@@ -1,6 +1,6 @@
 import Comments from "../data/Comments";
 import BlogCommentForm from "./BlogCommentForm";
-import BlogCommentReplyForm from "./BlockCommentReplyForm";
+import BlogCommentReplyForm from "./BlogCommentReplyForm";
 import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
