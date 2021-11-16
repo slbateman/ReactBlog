@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function BlogCommentForm({ index, blogBase }) {
 
-  console.log("--Blog CommentForm--")
+  console.log("--Blog Comment Form--")
     
   function submitComment() {
     console.log(blogBase[index].articleID);

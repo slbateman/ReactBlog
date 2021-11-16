@@ -4,6 +4,7 @@ import ContactModal from "./ContactModal";
 import { useState } from "react";
 
 function ContactForm() {
+  console.log("--Contact Form--")
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);

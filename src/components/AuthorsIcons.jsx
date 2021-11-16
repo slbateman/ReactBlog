@@ -2,6 +2,7 @@ import AuthorBios from "../data/AuthorBios";
 import { Link } from "react-router-dom";
 
 function AuthorsIcons({ changeAuthor }) {
+  console.log("--Authors Icons--")
   return (
     <div className="authors-icons">
       <div className="authors-icons-block">

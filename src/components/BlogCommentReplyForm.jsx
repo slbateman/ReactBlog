@@ -8,6 +8,7 @@ function BlogCommentReplyForm({
   buttonCommentID,
   setButtonCommentID,
 }) {
+  console.log("--Blog Comment Reply Form--")
   let index = Comments.findIndex((element) => element.commentID === commentID);
   function submitReply() {
     console.log(index);

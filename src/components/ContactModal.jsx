@@ -2,6 +2,7 @@ import Modal from "../../node_modules/react-bootstrap/Modal";
 import Button from "../../node_modules/react-bootstrap/Button";
 
 function ContactModal({show, handleClose, email, message}) {
+  console.log("--Contact Modal--")
 
   return (
     <>

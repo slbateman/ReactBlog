@@ -32,9 +32,10 @@ function App() {
       })
     );
     setUserInfo(JSON.parse(localStorage.getItem("user")));
-  } else {
-    localStorage.setItem("user", JSON.stringify(userInfo)) ;
-  }
+  } 
+  // else {
+  //   localStorage.setItem("user", JSON.stringify(userInfo)) ;
+  // }
 
   useEffect(() => {
     if (userInfo) {

@@ -6,6 +6,7 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { useState } from "react"
 
 function Authors() {
+  console.log("--Authors--")
   let location = useLocation();
   const [authorIndex, setAuthorIndex] = useState(
     AuthorBios.findIndex(

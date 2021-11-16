@@ -4,12 +4,14 @@ import { useHistory } from "react-router";
 
 const NewArticle = ({ blogBase, setBlogBase, userInfo, userBase }) => {
   console.log("--New Article--");
+  console.log(userBase)
 
   const history = useHistory()
   const articleID = blogBase[0].articleID + 1;
   const userIndex = userBase.findIndex(
     (element) => element.email === userInfo.email
   );
+  console.log(userIndex)
   const author = userBase[userIndex].fName + " " + userBase[userIndex].lName
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
