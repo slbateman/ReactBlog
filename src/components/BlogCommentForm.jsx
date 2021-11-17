@@ -1,13 +1,14 @@
+import Store from "../store/Store";
 import Form from "../../node_modules/react-bootstrap/Form";
 import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
-function BlogCommentForm({ index, blogBase }) {
+function BlogCommentForm({ index }) {
+  console.log("--Blog Comment Form--");
+  const state = Store.getState();
 
-  console.log("--Blog Comment Form--")
-    
   function submitComment() {
-    console.log(blogBase[index].articleID);
+    console.log(state.blogs[index].articleID);
     console.log(commentValue);
     setCommentValue("");
   }

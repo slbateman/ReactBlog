@@ -1,16 +1,16 @@
-import Comments from "../data/Comments";
+import Store from "../store/Store";
 import BlogCommentForm from "./BlogCommentForm";
 import BlogCommentReplyForm from "./BlogCommentReplyForm";
 import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
-function BlogComments({ index, blogBase }) {
+function BlogComments({ index }) {
+  console.log("--Blog Comments--");
+  const state = Store.getState();
 
-  console.log("--Blog Comments--")
-  
   let articleComments = [];
-  Comments.map((data) => {
-    if (blogBase[index].articleID === data.articleID) {
+  state.comments.map((data) => {
+    if (state.blogs[index].articleID === data.articleID) {
       articleComments.push([
         data.user,
         data.comment,
@@ -25,11 +25,11 @@ function BlogComments({ index, blogBase }) {
 
   return (
     <div className="blog-comments">
-      <BlogCommentForm index={index} blogBase={blogBase} />
+      <BlogCommentForm index={index} />
       <br />
       <br />
       {articleComments.map((data, i) => (
-        <div className="comment" key={data} >
+        <div className="comment" key={data}>
           <hr />
           <h5>{data[0]}</h5>
           {data[1]}
@@ -48,7 +48,6 @@ function BlogComments({ index, blogBase }) {
           <div>
             <BlogCommentReplyForm
               commentID={data[3]}
-              i={i}
               buttonCommentID={buttonCommentID}
               setButtonCommentID={setButtonCommentID}
             />
@@ -56,7 +55,7 @@ function BlogComments({ index, blogBase }) {
           <br />
           <div className="comment-reply">
             {data[2].map((subData) => (
-              <div key={subData} >
+              <div key={subData}>
                 <hr />
                 <h5>{subData.user}</h5>
                 {subData.comment}
