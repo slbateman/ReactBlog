@@ -1,5 +1,6 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
+import Store from "./store/Store"
 import { Route, Switch } from "react-router-dom";
 import TemLogo from "./components/TemLogo";
 import HomeLogo from "./components/HomeLogo";
@@ -32,11 +33,7 @@ function App() {
       })
     );
     setUserInfo(JSON.parse(localStorage.getItem("user")));
-  } 
-  // else {
-  //   localStorage.setItem("user", JSON.stringify(userInfo)) ;
-  // }
-
+  }
   useEffect(() => {
     if (userInfo) {
       setLoggedIn(userInfo.loggedIn);
@@ -106,7 +103,7 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/">
-            <Home blogBase={blogBase} />
+            <Home />
           </Route>
           <Route path="/blog">
             <Blog
