@@ -1,14 +1,12 @@
-import Store from "../store/Store";
 import { Link } from "react-router-dom";
 import Container from "../../node_modules/react-bootstrap/Container";
 
-function HomeArticleScroll() {
+function HomeArticleScroll({ blogBase }) {
   console.log("--Home Article Scroll--");
-  const state = Store.getState();
 
   return (
     <div className="home-article-scroll">
-      {state.blogs.map((data, i) => (
+      {blogBase.map((data, i) => (
         <Container fluid key={"scroll" + i}>
           <Link to={`/blog/${data.date}`}>
             <div className="blog-preview">

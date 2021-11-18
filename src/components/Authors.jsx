@@ -1,16 +1,15 @@
 import AuthorsIcons from "./AuthorsIcons";
 import AuthorsImg from "./AuthorsImg";
 import AuthorsFocus from "./AuthorsFocus";
-import Store from "../store/Store";
+import AuthorBios from "../data/AuthorBios";
 import { Switch, Route, useLocation } from "react-router-dom";
 import { useState } from "react"
 
 function Authors() {
   console.log("--Authors--")
-  const state = Store.getState();
   let location = useLocation();
   const [authorIndex, setAuthorIndex] = useState(
-    state.authors.findIndex(
+    AuthorBios.findIndex(
       (element) => element.fName + "-" + element.lName === location.pathname.substr(9, 30)
     )
   );

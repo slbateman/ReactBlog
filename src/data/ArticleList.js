@@ -15,7 +15,6 @@ const ArticleList = [
         image: image01,
         imageAlt: "Scary Monster 1",
         title: "Mythical American Monsters",
-        authorID: 1,
         author: "Steve Bateman",
         date: "2021-10-27",
         body: [`Every culture around the globe creates mythical tales. And a lot of them involve scary creatures: Scotland's Loch Ness Monster, for instance or the Himalayans' Yeti, or Abominable Snowman. It's part of our human DNA.
@@ -86,7 +85,6 @@ const ArticleList = [
         image: image02,
         imageAlt: "Scary Monster 2",
         title: "Top 10 Scariest Monsters",
-        authorID: 2,
         author: "Alfred Hitchcock",
         date: "2021-10-21",
         body: [`All around the world there are legends and stories of monsters, and these creatures aren’t you’re typical camp fire story they’re the things nightmares are made from. Here’s a list of top voted scariest monsters.
@@ -147,7 +145,6 @@ const ArticleList = [
         image: image03,
         imageAlt: "Scary Monster 3",
         title: "The Monsters that Make Us",
-        authorID: 3,
         author: "H.R. Giger",
         date: "2021-10-15",
         body: [`Monster comes from the Latin monstrum, meaning something unnatural or unpleasant. Early thinkers thought a monster was some malfunction of nature. There are plenty of monsters in classical mythology. For example, Cerberus is a three-headed dog with a serpent for a tail. Called “the hound of Hades,” Cerberus guards the gates of the underworld to keep the dead from leaving. A serpentine water monster, the multi-headed hydra poses a unique problem as it regenerates two (or more heads) for every head severed making it difficult to kill. Medusa, a gorgon, has wings and venomous snakes in place of hair. Looking at her directly turns the viewer to stone.
@@ -170,7 +167,6 @@ const ArticleList = [
         image: image04,
         imageAlt: "Scary Monster 4",
         title: "Why We Invent Monsters",
-        authorID: 4,
         author: "Vincent Price",
         date: "2021-09-29",
         body: [`Monsters fill the mythic landscape. In Hawaiian myth, there is a human with a “shark-mouth” in the middle of his back. In Aboriginal myth, there is a creature with the body of a human, the head of a snake, and the suckers of an octopus. In South American myth, there is the were-jaguar; in Native American myth, there are flying heads, human-devouring eagles, predatory owl-men, water-cannibals, horned snakes, giant turtles, monster bats, and even a human-eating leech as large as a house. In Greek myth, one finds Polyphemus, the one-eyed cannibal giant; the Minotaur, a monstrous human-bull hybrid that consumes sacrificial victims in the “bowels” of the subterranean Labyrinth; and Scylla, the six-headed serpent who wears a belt of dogs’ heads ravenously braying for meat.
@@ -222,7 +218,6 @@ const ArticleList = [
         image: image05,
         imageAlt: "Scary Monster 5",
         title: "Writing Monsters",
-        authorID: 3,
         author: "H.R. Giger",
         date: "2021-09-13",
         body: [`The definition of a monster differs depending on who the reader or observer is. A zombie in a TV show may be a scary monster to some, but for others, the scariest monsters are more psychological. Monster design can follow a familiar mythological creature trope, like a vampire or werewolf, or it can be a personal horror all your own.
@@ -272,7 +267,6 @@ const ArticleList = [
         image: image06,
         imageAlt: "Scary Monster 6",
         title: "Fairies Weren't Always Cute",
-        authorID: 2,
         author: "Alfred Hitchcock",
         date: "2021-08-24",
         body: [`When most people think about fairies, they perhaps picture the sparkling Tinker Bell from Peter Pan or the other heartwarming and cute fairies and fairy god mothers that populate many Disney movies and children’s cartoons. But these creatures have much darker origins - and were once thought to be more like undead blood-sucking vampires.
@@ -322,7 +316,6 @@ const ArticleList = [
         image: image07,
         imageAlt: "Scary Monster 7",
         title: "Origins of Werewolves",
-        authorID: 4,
         author: "Vincent Price",
         date: "2021-08-07",
         body: [`The werewolf is a staple of supernatural fiction, whether it be film, television, or literature. You might think this snarling creature is a creation of the Medieval and Early Modern periods, a result of the superstitions surrounding magic and witchcraft.
@@ -366,7 +359,6 @@ const ArticleList = [
         image: image08,
         imageAlt: "Scary Monster 8",
         title: "Monsters on the Mind",
-        authorID: 2,
         author: "Alfred Hitchcock",
         date: "2021-07-18",
         body: [`Almost 35 years have passed since a ragtag troupe of gyrating zombies first captivated audiences worldwide, helping to make Michael Jackson’s 1983 hit “Thriller” one of the most popular music videos of all time. Our appetite for all things associated with the undead has only grown more pronounced since.
@@ -430,7 +422,6 @@ const ArticleList = [
         image: image09,
         imageAlt: "Scary Monster 9",
         title: "Obsessed with Monsters",
-        authorID: 3,
         author: "H.R. Giger",
         date: "2021-07-12",
         body: [`Fear continues to saturate our lives: fear of nuclear destruction, fear of climate change, fear of the subversive, and fear of foreigners.
@@ -494,7 +485,6 @@ const ArticleList = [
         image: image10,
         imageAlt: "Scary Monster 10",
         title: "Hilarious Movie Monsters",
-        authorID: 4,
         author: "Vincent Price",
         date: "2021-07-01",
         body: [`In the '90s, film special effects and CGI weren't what they are now. As a result, these "scary" movie monsters are more funny-looking than horrifying.

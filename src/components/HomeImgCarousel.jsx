@@ -1,14 +1,11 @@
-import Store from "../store/Store";
 import Carousel from "../../node_modules/react-bootstrap/Carousel";
 
-function HomeImgCarousel() {
+function HomeImgCarousel({ blogBase }) {
   console.log("--Home Carousel--")
-  const state = Store.getState();
-
   return (
     <div className="home-img-carousel">
       <Carousel>
-        {state.blogs.map((data, i) => (
+        {blogBase.map((data, i) => (
           <Carousel.Item key={"img" + i}>
             <div>
               <img

@@ -1,25 +1,25 @@
-import Store from "../store/Store";
 import ToTopButton from "./ToTopButton";
 import { Link } from "react-router-dom";
 
-function BlogNext({ index, changeArticle }) {
-  console.log("--Blog Next--");
-  const state = Store.getState();
+function BlogNext({ index, changeArticle, blogBase }) {
+
+  console.log("--Blog Next--")
+  
 
   let nextBlog;
   if (index >= 0) {
-    let nextArticlePath = `/blog/${state.blogs[index].date}`;
+    let nextArticlePath = `/blog/${blogBase[index].date}`;
     nextBlog = (
       <Link
         onClick={() => {
-          changeArticle(state.blogs[index].date);
+          changeArticle(blogBase[index].date);
         }}
         to={nextArticlePath}
       >
         <div className="blog-next">
           <h4>NEXT</h4>
-          <h5>{state.blogs[index].title}</h5>
-          <h6>{state.blogs[index].date}</h6>
+          <h5>{blogBase[index].title}</h5>
+          <h6>{blogBase[index].date}</h6>
         </div>
       </Link>
     );
