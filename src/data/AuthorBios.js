@@ -1,4 +1,4 @@
-import stevebateman from "../images/stevebateman.jpeg"
+import stevebateman from "../images/stevebateman.jpeg";
 import alfredhitchcock from "../images/alfredhitchcock.jpeg";
 import hrgiger from "../images/hrgiger.jpeg";
 import vincentprice from "../images/vincentprice.jpeg";

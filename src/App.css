@@ -135,6 +135,12 @@
   width: calc(100vw - 220px - 220px);
   margin-bottom: 90px;
 }
+.avatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
 .blog-article-img {
   margin-top: 20px;
@@ -151,7 +157,7 @@
 }
 
 .blog-comment-area {
-  background-color: rgb(199, 199, 199);
+  background-color: rgb(245, 245, 245);
 }
 
 .reply-button {
