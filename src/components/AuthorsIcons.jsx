@@ -1,17 +1,15 @@
-import Store from "../store/Store";
+import AuthorBios from "../data/AuthorBios";
 import { Link } from "react-router-dom";
 
 function AuthorsIcons({ changeAuthor }) {
   console.log("--Authors Icons--")
-  const state = Store.getState();
-  
   return (
     <div className="authors-icons">
       <div className="authors-icons-block">
-        {state.authors.map((data) => (
+        {AuthorBios.map((data) => (
           <Link
             onClick={() => {
-              changeAuthor(state.authors.indexOf(data));
+              changeAuthor(AuthorBios.indexOf(data));
             }}
             to={`/authors/${data.fName}-${data.lName}`}
             key={data.fName+data.lName}

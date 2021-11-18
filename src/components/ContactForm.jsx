@@ -4,16 +4,12 @@ import ContactModal from "./ContactModal";
 import { useState } from "react";
 
 function ContactForm() {
-  console.log("--Contact Form--");
+  console.log("--Contact Form--")
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   const [emailValue, setEmailValue] = useState("");
   const [messageValue, setMessageValue] = useState("");
-  const [show, setShow] = useState(false);
-  const handleShow = () => setShow(true);
-  const handleClose = () => {
-    setShow(false);
-    setMessageValue("");
-    setEmailValue("");
-  };
 
   return (
     <div className="contact-form">

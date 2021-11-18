@@ -1,6 +1,6 @@
-import Store from "../store/Store";
 import Form from "../../node_modules/react-bootstrap/Form";
 import Button from "../../node_modules/react-bootstrap/Button";
+import Comments from "../data/Comments";
 import { useState } from "react";
 
 function BlogCommentReplyForm({
@@ -8,14 +8,12 @@ function BlogCommentReplyForm({
   buttonCommentID,
   setButtonCommentID,
 }) {
-  console.log("--Blog Comment Reply Form--");
-  const state = Store.getState();
-
-  let index = state.comments.findIndex((element) => element.commentID === commentID);
+  console.log("--Blog Comment Reply Form--")
+  let index = Comments.findIndex((element) => element.commentID === commentID);
   function submitReply() {
     console.log(index);
     console.log(commentID);
-    console.log(buttonCommentID);
+    console.log(buttonCommentID)
     console.log(replyValue);
     setReplyValue("");
     document.querySelector(".blog-reply-area").style.display = "none";
@@ -56,7 +54,8 @@ function BlogCommentReplyForm({
           variant="dark"
           type="button"
           onClick={() => {
-            document.querySelector(".blog-reply-area").style.display = "none";
+            document.querySelector(".blog-reply-area").style.display =
+              "none";
             setButtonCommentID("");
           }}
         >

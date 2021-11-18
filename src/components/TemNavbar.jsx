@@ -1,4 +1,3 @@
-import Store from "../store/Store";
 import Navbar from "react-bootstrap/esm/Navbar";
 import Nav from "react-bootstrap/esm/Nav";
 import Button from "react-bootstrap/esm/Button";
@@ -7,13 +6,12 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function TemNavbar({ loggedIn }) {
-  const state = Store.getState();
   const [profile, setProfile] = useState("login");
-  const [profileLink, setProfileLink] = useState("/login");
+  const [profileLink, setProfileLink] = useState("/login")
 
   useEffect(() => {
-    loggedIn ? setProfile("profile") : setProfile("login");
-    loggedIn ? setProfileLink("/login/profile") : setProfileLink("/login");
+    loggedIn ? setProfile("profile"): setProfile("login")
+    loggedIn ? setProfileLink("/login/profile"): setProfileLink("/login")
   }, [loggedIn]);
 
   return (

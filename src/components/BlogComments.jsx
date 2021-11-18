@@ -1,21 +1,18 @@
-import Store from "../store/Store";
+import Comments from "../data/Comments";
 import BlogCommentForm from "./BlogCommentForm";
 import BlogCommentReplyForm from "./BlogCommentReplyForm";
 import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
-function BlogComments({ index }) {
-  console.log("--Blog Comments--");
-  const state = Store.getState();
+function BlogComments({ index, blogBase }) {
 
+  console.log("--Blog Comments--")
+  
   let articleComments = [];
-  state.comments.map((data) => {
-    const userIndex = state.users.findIndex(
-      (element) => element.userID === state.comments[index].userID
-    );
-    if (state.blogs[index].articleID === data.articleID) {
+  Comments.map((data) => {
+    if (blogBase[index].articleID === data.articleID) {
       articleComments.push([
-        state.users[userIndex],
+        data.user,
         data.comment,
         data.reply,
         data.commentID,
@@ -28,21 +25,13 @@ function BlogComments({ index }) {
 
   return (
     <div className="blog-comments">
-      <BlogCommentForm index={index} />
+      <BlogCommentForm index={index} blogBase={blogBase} />
       <br />
       <br />
       {articleComments.map((data, i) => (
-        <div className="comment" key={"comment" + i}>
+        <div className="comment" key={data} >
           <hr />
-          <h5>
-            {" "}
-            <img
-              className="avatar"
-              src={data[0].avatar}
-              alt="user avatar"
-            />{" "}
-            {data[0].userName}
-          </h5>
+          <h5>{data[0]}</h5>
           {data[1]}
           <br />
           <Button
@@ -59,35 +48,17 @@ function BlogComments({ index }) {
           <div>
             <BlogCommentReplyForm
               commentID={data[3]}
+              i={i}
               buttonCommentID={buttonCommentID}
               setButtonCommentID={setButtonCommentID}
             />
           </div>
           <br />
           <div className="comment-reply">
-            {data[2].map((subData, j) => (
-              <div key={"commentReply" + j}>
+            {data[2].map((subData) => (
+              <div key={subData} >
                 <hr />
-                <h5>
-                  <img
-                    className="avatar"
-                    src={
-                      state.users[
-                        state.users.findIndex(
-                          (element) => element.userID === subData.userID
-                        )
-                      ].avatar
-                    }
-                    alt="user avatar"
-                  />{" "}
-                  {
-                    state.users[
-                      state.users.findIndex(
-                        (element) => element.userID === subData.userID
-                      )
-                    ].userName
-                  }
-                </h5>
+                <h5>{subData.user}</h5>
                 {subData.comment}
               </div>
             ))}
