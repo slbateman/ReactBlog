@@ -4,7 +4,7 @@ import BlogArticle from "./BlogArticle";
 import BlogNext from "./BlogNext";
 import BlogPrevious from "./BlogPrevious";
 
-function Blog({ blogBase }) {
+function Blog({ blogBase, userBase }) {
 
   console.log("--Blog--")
 
@@ -28,7 +28,7 @@ function Blog({ blogBase }) {
         <Route exact path="/blog">
           <BlogPrevious index={1} changeArticle={changeArticle} blogBase={blogBase} />
           <BlogNext index={-1} changeArticle={changeArticle} blogBase={blogBase} />
-          <BlogArticle index={0} blogBase={blogBase} />
+          <BlogArticle index={0} blogBase={blogBase} userBase={userBase} />
         </Route>
         <Route path="/blog/">
           <BlogPrevious
@@ -41,7 +41,7 @@ function Blog({ blogBase }) {
             changeArticle={changeArticle}
             blogBase={blogBase}
           />
-          <BlogArticle index={articleIndex} blogBase={blogBase} />
+          <BlogArticle index={articleIndex} blogBase={blogBase} userBase={userBase} />
         </Route>
       </Switch>
     </div>

@@ -4,15 +4,17 @@ import BlogCommentReplyForm from "./BlogCommentReplyForm";
 import Button from "../../node_modules/react-bootstrap/Button";
 import { useState } from "react";
 
-function BlogComments({ index, blogBase }) {
+function BlogComments({ index, blogBase, userBase }) {
+  console.log("--Blog Comments--");
 
-  console.log("--Blog Comments--")
-  
   let articleComments = [];
   Comments.map((data) => {
+    const userIndex = userBase.findIndex(
+      (element) => element.userID === data.userID
+    );
     if (blogBase[index].articleID === data.articleID) {
       articleComments.push([
-        data.user,
+        userBase[userIndex],
         data.comment,
         data.reply,
         data.commentID,
@@ -29,9 +31,12 @@ function BlogComments({ index, blogBase }) {
       <br />
       <br />
       {articleComments.map((data, i) => (
-        <div className="comment" key={data} >
+        <div className="comment" key={"comment" + i}>
           <hr />
-          <h5>{data[0]}</h5>
+          <h5>
+            {data[0].userName}{" "}
+            <img className="avatar" src={data[0].avatar} alt="user avatar" />
+          </h5>
           {data[1]}
           <br />
           <Button
@@ -48,17 +53,35 @@ function BlogComments({ index, blogBase }) {
           <div>
             <BlogCommentReplyForm
               commentID={data[3]}
-              i={i}
               buttonCommentID={buttonCommentID}
               setButtonCommentID={setButtonCommentID}
             />
           </div>
           <br />
           <div className="comment-reply">
-            {data[2].map((subData) => (
-              <div key={subData} >
+            {data[2].map((subData, i) => (
+              <div key={"reply" + i}>
                 <hr />
-                <h5>{subData.user}</h5>
+                <h5>
+                  {
+                    userBase[
+                      userBase.findIndex(
+                        (element) => element.userID === subData.userID
+                      )
+                    ].userName
+                  }{" "}
+                  <img
+                    className="avatar"
+                    src={
+                      userBase[
+                        userBase.findIndex(
+                          (element) => element.userID === subData.userID
+                        )
+                      ].avatar
+                    }
+                    alt="user avatar"
+                  />
+                </h5>
                 {subData.comment}
               </div>
             ))}

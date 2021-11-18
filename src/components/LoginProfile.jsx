@@ -11,8 +11,14 @@ const LoginProfile = ({
   setUserIndex,
   userBase,
 }) => {
-  
   console.log("--Login Profile--");
+
+  let isAuthor = false;
+  if (userBase[userIndex].role === "author" || userBase[userIndex].role === "admin") {
+    isAuthor = true;
+  } else {
+    isAuthor = false;
+  }
 
   let history = useHistory();
   useEffect(() => {
@@ -37,8 +43,12 @@ const LoginProfile = ({
     <div className="login-profile">
       <Row className="justify-content-center">
         <Col>
-        <Link to="/newArticle" >
-          <Button>Add New Article</Button>
+          <Link to="/newArticle">
+            <Button
+              style={isAuthor ? { display: "block" } : { display: "none" }}
+            >
+              Add New Article
+            </Button>
           </Link>
           <br />
           <br />

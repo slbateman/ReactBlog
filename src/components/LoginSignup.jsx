@@ -1,21 +1,18 @@
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import defaultImg from "../images/the-exorcist.jpeg";
 
 function LoginSignup({
   email,
   setEmail,
   userBase,
-  userInfo,
   setUserInfo,
   setUserBase,
-  userIndex,
   setUserIndex,
-  loggedIn,
   setLoggedIn,
 }) {
-
-  console.log("--SignUp--")
+  console.log("--SignUp--");
 
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -35,13 +32,14 @@ function LoginSignup({
       let newUserArr = [
         ...userBase,
         {
+          userID: userBase.length + 1,
           userName: userName,
           fName: firstName,
           lName: lastName,
           email: email,
           password: password1,
           role: "user",
-          avatar: "",
+          avatar: defaultImg,
         },
       ];
       localStorage.setItem("users", JSON.stringify(newUserArr));

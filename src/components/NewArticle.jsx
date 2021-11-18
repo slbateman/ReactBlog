@@ -4,42 +4,44 @@ import { useHistory } from "react-router";
 
 const NewArticle = ({ blogBase, setBlogBase, userInfo, userBase }) => {
   console.log("--New Article--");
-  console.log(userBase)
+  console.log(userBase);
 
-  const history = useHistory()
+  const history = useHistory();
   const articleID = blogBase[0].articleID + 1;
   const userIndex = userBase.findIndex(
     (element) => element.email === userInfo.email
   );
-  console.log(userIndex)
-  const author = userBase[userIndex].fName + " " + userBase[userIndex].lName
+  console.log(userIndex);
+  const author = userBase[userIndex].fName + " " + userBase[userIndex].lName;
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
-  const imageAlt = title + " " + date
+  const imageAlt = title + " " + date;
   const [body, setBody] = useState("");
 
   const createArticle = () => {
-      let newArticleArr = [{
-          articleID: articleID,
-          author: author,
-          body: [body],
-          date: date,
-          image: image,
-          imageAlt: imageAlt,
-          title: title
-      }, ...blogBase
+    let newArticleArr = [
+      {
+        articleID: articleID,
+        userID: userBase[userIndex].userID,
+        body: [body],
+        date: date,
+        image: image,
+        imageAlt: imageAlt,
+        title: title,
+      },
+      ...blogBase,
     ];
-    localStorage.setItem("blogs", JSON.stringify(newArticleArr))
-    setBlogBase(JSON.parse(localStorage.getItem("blogs")))
-    history.push(`/blog/${date}`)
-  } 
+    localStorage.setItem("blogs", JSON.stringify(newArticleArr));
+    setBlogBase(JSON.parse(localStorage.getItem("blogs")));
+    history.push(`/blog/${date}`);
+  };
 
   return (
     <div className="new-article">
       <Row className="justify-content-center">
         <Col>
-          <Form onSubmit={()=> createArticle()} >
+          <Form onSubmit={() => createArticle()}>
             <Row>
               <Col>
                 <Form.Group>
