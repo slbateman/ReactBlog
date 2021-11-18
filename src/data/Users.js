@@ -1,3 +1,4 @@
+import defaultImg from "../images/the-exorcist.jpeg"
 import stevebateman from "../images/stevebateman.jpeg";
 import alfredhitchcock from "../images/alfredhitchcock.jpeg";
 import hrgiger from "../images/hrgiger.jpeg";
@@ -64,6 +65,39 @@ const Users = [
       "In his later years, he voiced the villainous Professor Ratigan in Disney's classic animated film The Great Mouse Detective (1986), then appeared in the drama The Whales of August (1987), which earned him an Independent Spirit Award for Best Supporting Male nomination, and in Tim Burton’s Edward Scissorhands (1990), his last theatrical release. For his contributions to cinema, especially to genre films, he has received lifetime achievement or special tribute awards from Academy of Science Fiction, Fantasy and Horror Films, Fantasporto, Bram Stoker Awards, and Los Angeles Film Critics Association.[citation needed] Known for his iconic voice, Price narrated several animation films, radio dramas and documentaries, as well as the monologue on Michael Jackson's song 'Thriller'. For his voice work in Great American Speeches (1959), he was nominated for a Grammy Award for Best Spoken Word Album.",
       "Price was also an art collector and arts consultant, with a degree in art history, and he lectured and wrote books on the subject. The Vincent Price Art Museum at East Los Angeles College is named in his honor. He was also a noted gourmet cook.",
     ],
+  },
+  {
+    userID: 5,
+    userName: "usr293",
+    fName: "",
+    lName: "",
+    email: "usr293@gmail.com",
+    password: "asdf1234",
+    role: "user",
+    avatar: defaultImg,
+    bio: [],
+  },
+  {
+    userID: 6,
+    userName: "mansfield",
+    fName: "",
+    lName: "",
+    email: "mansfield@gmail.com",
+    password: "asdf1234",
+    role: "user",
+    avatar: defaultImg,
+    bio: [],
+  },
+  {
+    userID: 7,
+    userName: "harbordan",
+    fName: "",
+    lName: "",
+    email: "harbordan@gmail.com",
+    password: "asdf1234",
+    role: "user",
+    avatar: defaultImg,
+    bio: [],
   },
 ];
 

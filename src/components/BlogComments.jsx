@@ -10,9 +10,12 @@ function BlogComments({ index }) {
 
   let articleComments = [];
   state.comments.map((data) => {
+    const userIndex = state.users.findIndex(
+      (element) => element.userID === state.comments[index].userID
+    );
     if (state.blogs[index].articleID === data.articleID) {
       articleComments.push([
-        data.user,
+        state.users[userIndex],
         data.comment,
         data.reply,
         data.commentID,
@@ -29,9 +32,17 @@ function BlogComments({ index }) {
       <br />
       <br />
       {articleComments.map((data, i) => (
-        <div className="comment" key={data}>
+        <div className="comment" key={"comment" + i}>
           <hr />
-          <h5>{data[0]}</h5>
+          <h5>
+            {" "}
+            <img
+              className="avatar"
+              src={data[0].avatar}
+              alt="user avatar"
+            />{" "}
+            {data[0].userName}
+          </h5>
           {data[1]}
           <br />
           <Button
@@ -54,10 +65,29 @@ function BlogComments({ index }) {
           </div>
           <br />
           <div className="comment-reply">
-            {data[2].map((subData) => (
-              <div key={subData}>
+            {data[2].map((subData, j) => (
+              <div key={"commentReply" + j}>
                 <hr />
-                <h5>{subData.user}</h5>
+                <h5>
+                  <img
+                    className="avatar"
+                    src={
+                      state.users[
+                        state.users.findIndex(
+                          (element) => element.userID === subData.userID
+                        )
+                      ].avatar
+                    }
+                    alt="user avatar"
+                  />{" "}
+                  {
+                    state.users[
+                      state.users.findIndex(
+                        (element) => element.userID === subData.userID
+                      )
+                    ].userName
+                  }
+                </h5>
                 {subData.comment}
               </div>
             ))}
