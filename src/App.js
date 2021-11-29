@@ -106,7 +106,7 @@ function App() {
       <div>
         <Switch>
           <Route exact path="/">
-            <Home blogBase={blogBase} />
+            <Home />
           </Route>
           <Route path="/blog">
             <Blog

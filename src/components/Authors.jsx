@@ -1,33 +1,40 @@
 import AuthorsIcons from "./AuthorsIcons";
 import AuthorsImg from "./AuthorsImg";
 import AuthorsFocus from "./AuthorsFocus";
-import AuthorBios from "../data/AuthorBios";
+import { useSelector, useDispatch } from "react-redux";
+import { selectUsers, updateAuthorIndex } from "../store/Reducer";
 import { Switch, Route, useLocation } from "react-router-dom";
-import { useState } from "react"
 
 function Authors() {
-  console.log("--Authors--")
+  console.log("--Authors--");
+  const users = useSelector(selectUsers);
+  const dispatch = useDispatch();
+
   let location = useLocation();
-  const [authorIndex, setAuthorIndex] = useState(
-    AuthorBios.findIndex(
-      (element) => element.fName + "-" + element.lName === location.pathname.substr(9, 30)
+  dispatch(
+    updateAuthorIndex(
+      users.findIndex(
+        (element) =>
+          element.fName + "-" + element.lName ===
+          location.pathname.substr(9, 30)
+      )
     )
   );
 
   const changeAuthor = (index) => {
     window.scrollTo(0, 0);
-    setAuthorIndex(index);
+    dispatch(updateAuthorIndex(index));
   };
 
   return (
     <div className="authors">
       <AuthorsIcons changeAuthor={changeAuthor} />
       <Switch>
-        <Route exact path="/authors" >  
-          <AuthorsFocus index={0} />
+        <Route exact path="/authors">
+          <AuthorsFocus />
         </Route>
-        <Route path="/authors/" >  
-          <AuthorsFocus index={authorIndex}/>
+        <Route path="/authors/">
+          <AuthorsFocus />
         </Route>
       </Switch>
       <AuthorsImg />

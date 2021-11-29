@@ -1,11 +1,15 @@
+import { useSelector } from "react-redux";
+import { selectArticles } from "../store/Reducer";
 import Carousel from "../../node_modules/react-bootstrap/Carousel";
 
-function HomeImgCarousel({ blogBase }) {
+function HomeImgCarousel() {
   console.log("--Home Carousel--")
+  const articles = useSelector(selectArticles)
+
   return (
     <div className="home-img-carousel">
       <Carousel>
-        {blogBase.map((data, i) => (
+        {articles.map((data, i) => (
           <Carousel.Item key={"img" + i}>
             <div>
               <img

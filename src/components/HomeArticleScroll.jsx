@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { selectArticles } from "../store/Reducer";
+import HomeArticleScrollAuthor from './HomeArticleScrollAuthor'
 import Container from "../../node_modules/react-bootstrap/Container";
 
-function HomeArticleScroll({ blogBase }) {
+const HomeArticleScroll = () => {
   console.log("--Home Article Scroll--");
+  const articles = useSelector(selectArticles);
 
   return (
     <div className="home-article-scroll">
-      {blogBase.map((data, i) => (
+      {articles.map((data, i) => (
         <Container fluid key={"scroll" + i}>
           <Link to={`/blog/${data.date}`}>
             <div className="blog-preview">
@@ -20,7 +24,7 @@ function HomeArticleScroll({ blogBase }) {
               <div className="preview-text">
                 <div className="preview-title">{data.title.substr(0, 28)}</div>
                 <div className="preview-author-date">
-                  <div className="preview-author">{data.author}</div>
+                  <HomeArticleScrollAuthor userID={articles[i].userID} />
                   <div className="preview-date">{data.date}</div>
                 </div>
                 <div className="preview-body">
@@ -33,6 +37,6 @@ function HomeArticleScroll({ blogBase }) {
       ))}
     </div>
   );
-}
+};
 
 export default HomeArticleScroll;
