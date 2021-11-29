@@ -3,7 +3,6 @@ import { selectUsers } from "../store/Reducer";
 import { Link } from "react-router-dom";
 
 function AuthorsIcons({ changeAuthor }) {
-  console.log("--Authors Icons--");
   const users = useSelector(selectUsers);
   
   let authors = [];

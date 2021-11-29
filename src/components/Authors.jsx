@@ -6,7 +6,6 @@ import { selectUsers, updateAuthorIndex } from "../store/Reducer";
 import { Switch, Route, useLocation } from "react-router-dom";
 
 function Authors() {
-  console.log("--Authors--");
   const users = useSelector(selectUsers);
   const dispatch = useDispatch();
 

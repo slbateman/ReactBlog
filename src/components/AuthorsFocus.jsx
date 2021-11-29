@@ -2,10 +2,8 @@ import { useSelector } from "react-redux";
 import { selectUsers, selectIndexStates } from "../store/Reducer";
 
 function AuthorsFocus() {
-  console.log("--Authors Focus--");
   const users = useSelector(selectUsers)
   const authorIndex = useSelector(selectIndexStates).authorIndex
-  console.log(authorIndex)
 
   return (
     <div className="authors-focus">
