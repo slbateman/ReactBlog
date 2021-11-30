@@ -14,8 +14,8 @@ const initUserInfo = () => {
     localStorage.setItem(
       "userInfo",
       JSON.stringify({
-        userID: 0,
-        loggedIn: false,
+        userID: 1,
+        loggedIn: true,
       })
     );
     userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -64,8 +64,6 @@ if (users.findIndex((element) => element.userID === userInfo.userID) === -1) {
   indexStates.userIndex = 0;
 }
 
-console.log(indexStates.authorIndex)
-
 export const dataListSlice = createSlice({
   name: "dataList",
   initialState: {
@@ -79,7 +77,16 @@ export const dataListSlice = createSlice({
     updateUserInfo: (state, action) => {},
     updateUsers: (state, action) => {},
     updateArticles: (state, action) => {},
-    updateComments: (state, action) => {},
+    updateComments: (state, action) => {
+      state.comments = [...state.comments, action.payload];
+      localStorage.setItem("comments", JSON.stringify(state.comments));
+    },
+    updateReplies: (state, action) => {
+      state.comments[action.payload.commentIndex].reply.push(
+        action.payload.reply
+      );
+      localStorage.setItem("comments", JSON.stringify(state.comments));
+    },
     updateUserIndex: (state, action) => {
       state.indexStates.userIndex = action.payload;
     },
@@ -91,7 +98,11 @@ export const dataListSlice = createSlice({
       }
     },
     updateArticleIndex: (state, action) => {
-      state.indexStates.articleIndex = action.payload;
+      if (action.payload === -1) {
+        state.indexStates.articleIndex = 0;
+      } else {
+        state.indexStates.articleIndex = action.payload;
+      }
     },
     updateCommentIndex: (state, action) => {
       state.indexStates.commentIndex = action.payload;
@@ -107,6 +118,7 @@ export const {
   updateUsers,
   updateArticles,
   updateComments,
+  updateReplies,
   updateUserIndex,
   updateAuthorIndex,
   updateArticleIndex,

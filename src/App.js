@@ -110,11 +110,6 @@ function App() {
           </Route>
           <Route path="/blog">
             <Blog
-              blogBase={blogBase}
-              loggedIn={loggedIn}
-              setLoggedIn={setLoggedIn}
-              userBase={userBase}
-              setUserBase={setUserBase}
             />
           </Route>
           <Route path="/authors">

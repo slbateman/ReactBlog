@@ -1,47 +1,41 @@
-import { Route, Switch, useLocation } from "react-router-dom";
-import { useState } from "react";
 import BlogArticle from "./BlogArticle";
 import BlogNext from "./BlogNext";
 import BlogPrevious from "./BlogPrevious";
+import { useSelector, useDispatch } from "react-redux";
+import { selectArticles, updateArticleIndex } from "../store/Reducer";
+import { Route, Switch, useLocation } from "react-router-dom";
 
-function Blog({ blogBase, userBase }) {
-
-  console.log("--Blog--")
+function Blog() {
+  console.log("--Blog--");
+  const articles = useSelector(selectArticles);
+  const dispatch = useDispatch();
 
   let location = useLocation();
-  const [articleIndex, setArticleIndex] = useState(
-    blogBase.findIndex(
-      (element) => element.date === location.pathname.substr(6, 15)
+  dispatch(
+    updateArticleIndex(
+      articles.findIndex(
+        (element) => element.date === location.pathname.substr(6, 15)
+      )
     )
   );
 
-  const changeArticle = (dateChange) => {
+  const changeArticle = (newIndex) => {
     window.scrollTo(0, 0);
-    setArticleIndex(
-      blogBase.findIndex((element) => element.date === dateChange)
-    );
+    dispatch(updateArticleIndex(newIndex));
   };
 
   return (
     <div className="blog">
       <Switch>
         <Route exact path="/blog">
-          <BlogPrevious index={1} changeArticle={changeArticle} blogBase={blogBase} />
-          <BlogNext index={-1} changeArticle={changeArticle} blogBase={blogBase} />
-          <BlogArticle index={0} blogBase={blogBase} userBase={userBase} />
+          <BlogPrevious changeArticle={changeArticle} />
+          <BlogNext changeArticle={changeArticle} />
+          <BlogArticle />
         </Route>
         <Route path="/blog/">
-          <BlogPrevious
-            index={articleIndex + 1}
-            changeArticle={changeArticle}
-            blogBase={blogBase}
-          />
-          <BlogNext
-            index={articleIndex - 1}
-            changeArticle={changeArticle}
-            blogBase={blogBase}
-          />
-          <BlogArticle index={articleIndex} blogBase={blogBase} userBase={userBase} />
+          <BlogPrevious changeArticle={changeArticle} />
+          <BlogNext changeArticle={changeArticle} />
+          <BlogArticle />
         </Route>
       </Switch>
     </div>

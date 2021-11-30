@@ -1,20 +1,32 @@
-import Comments from "../data/Comments";
 import BlogCommentForm from "./BlogCommentForm";
 import BlogCommentReplyForm from "./BlogCommentReplyForm";
 import Button from "../../node_modules/react-bootstrap/Button";
+import { useSelector } from "react-redux";
+import {
+  selectUsers,
+  selectArticles,
+  selectComments,
+  selectIndexStates,
+} from "../store/Reducer";
 import { useState } from "react";
 
-function BlogComments({ index, blogBase, userBase }) {
+function BlogComments() {
   console.log("--Blog Comments--");
+  const index = useSelector(selectIndexStates).articleIndex;
+  const articles = useSelector(selectArticles);
+  const article =
+    useSelector(selectArticles)[useSelector(selectIndexStates).articleIndex];
+  const comments = useSelector(selectComments);
+  const users = useSelector(selectUsers);
 
   let articleComments = [];
-  Comments.map((data) => {
-    const userIndex = userBase.findIndex(
+  comments.map((data) => {
+    const userIndex = users.findIndex(
       (element) => element.userID === data.userID
     );
-    if (blogBase[index].articleID === data.articleID) {
+    if (article.articleID === data.articleID) {
       articleComments.push([
-        userBase[userIndex],
+        users[userIndex],
         data.comment,
         data.reply,
         data.commentID,
@@ -27,7 +39,7 @@ function BlogComments({ index, blogBase, userBase }) {
 
   return (
     <div className="blog-comments">
-      <BlogCommentForm index={index} blogBase={blogBase} />
+      <BlogCommentForm index={index} blogBase={articles} />
       <br />
       <br />
       {articleComments.map((data, i) => (
@@ -64,8 +76,8 @@ function BlogComments({ index, blogBase, userBase }) {
                 <hr />
                 <h5>
                   {
-                    userBase[
-                      userBase.findIndex(
+                    users[
+                      users.findIndex(
                         (element) => element.userID === subData.userID
                       )
                     ].userName
@@ -73,8 +85,8 @@ function BlogComments({ index, blogBase, userBase }) {
                   <img
                     className="avatar"
                     src={
-                      userBase[
-                        userBase.findIndex(
+                      users[
+                        users.findIndex(
                           (element) => element.userID === subData.userID
                         )
                       ].avatar

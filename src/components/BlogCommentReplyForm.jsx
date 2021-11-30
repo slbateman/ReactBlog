@@ -1,20 +1,40 @@
 import Form from "../../node_modules/react-bootstrap/Form";
 import Button from "../../node_modules/react-bootstrap/Button";
-import Comments from "../data/Comments";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
+import {
+  selectUserInfo,
+  selectComments,
+  updateReplies,
+} from "../store/Reducer";
 
 function BlogCommentReplyForm({
   commentID,
   buttonCommentID,
   setButtonCommentID,
 }) {
-  console.log("--Blog Comment Reply Form--")
-  let index = Comments.findIndex((element) => element.commentID === commentID);
+  console.log("--Blog Comment Reply Form--");
+  const comments = useSelector(selectComments);
+  const userInfo = useSelector(selectUserInfo);
+  const dispatch = useDispatch();
+  const index = comments.findIndex(
+    (element) => element.commentID === commentID
+  );
+  const comment = comments[index];
+  let replyID;
+  comment.reply[0]
+    ? (replyID = comment.reply[comment.reply.length - 1].replyID + 1)
+    : (replyID = 1);
   function submitReply() {
-    console.log(index);
-    console.log(commentID);
-    console.log(buttonCommentID)
-    console.log(replyValue);
+    const newReply = {
+      commentIndex: index,
+      reply: {
+        replyID: replyID,
+        userID: userInfo.userID,
+        comment: replyValue,
+      },
+    };
+    dispatch(updateReplies(newReply));
     setReplyValue("");
     document.querySelector(".blog-reply-area").style.display = "none";
     setButtonCommentID("");
@@ -54,8 +74,7 @@ function BlogCommentReplyForm({
           variant="dark"
           type="button"
           onClick={() => {
-            document.querySelector(".blog-reply-area").style.display =
-              "none";
+            document.querySelector(".blog-reply-area").style.display = "none";
             setButtonCommentID("");
           }}
         >

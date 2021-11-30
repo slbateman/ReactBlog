@@ -1,39 +1,43 @@
+import { useSelector } from "react-redux";
+import {
+  selectArticles,
+  selectUsers,
+  selectIndexStates,
+} from "../store/Reducer";
 import BlogComments from "./BlogComments";
 
-function BlogArticle({ index, blogBase, userBase }) {
+function BlogArticle() {
   console.log("--Blog Article--");
-  const authorIndex = userBase.findIndex(
-    (element) => element.userID === blogBase[index].userID
+  const article =
+    useSelector(selectArticles)[useSelector(selectIndexStates).articleIndex];
+  const author = useSelector(selectUsers).find(
+    (element) => element.userID === article.userID
   );
 
   return (
     <div className="blog-article">
       <img
         className="blog-article-img"
-        src={blogBase[index].image}
-        alt={blogBase[index].imageAlt}
+        src={article.image}
+        alt={article.imageAlt}
       />
-      <h1 className="blog-article-title">{blogBase[index].title}</h1>
+      <h1 className="blog-article-title">{article.title}</h1>
       <h4 className="blog-article-author">
-        By: {userBase[authorIndex].fName} {userBase[authorIndex].lName}
+        By: {author.fName} {author.lName}
         {" - "}
-        {userBase[authorIndex].userName}{" "}
-        <img
-          className="avatar"
-          src={userBase[authorIndex].avatar}
-          alt="user avatar"
-        />
+        {author.userName}{" "}
+        <img className="avatar" src={author.avatar} alt="user avatar" />
       </h4>
-      <h6 className="blog-article-date">Date: {blogBase[index].date}</h6>
+      <h6 className="blog-article-date">Date: {article.date}</h6>
       <div>
-        {blogBase[index].body.map((data, i) => (
+        {article.body.map((data, i) => (
           <p className="blog-article-body" key={"body" + i}>
             {data}{" "}
           </p>
         ))}
       </div>
       <br />
-      <BlogComments index={index} blogBase={blogBase} userBase={userBase} />
+      <BlogComments />
     </div>
   );
 }

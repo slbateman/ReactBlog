@@ -1,25 +1,27 @@
+import { useSelector } from "react-redux";
+import { selectArticles, selectIndexStates } from "../store/Reducer";
 import ToTopButton from "./ToTopButton";
 import { Link } from "react-router-dom";
 
-function BlogNext({ index, changeArticle, blogBase }) {
-
-  console.log("--Blog Next--")
-  
+function BlogNext({ changeArticle }) {
+  console.log("--Blog Next--");
+  const articles = useSelector(selectArticles);
+  const nextIndex = useSelector(selectIndexStates).articleIndex - 1;
 
   let nextBlog;
-  if (index >= 0) {
-    let nextArticlePath = `/blog/${blogBase[index].date}`;
+  if (nextIndex >= 0) {
+    let nextArticlePath = `/blog/${articles[nextIndex].date}`;
     nextBlog = (
       <Link
         onClick={() => {
-          changeArticle(blogBase[index].date);
+          changeArticle(nextIndex);
         }}
         to={nextArticlePath}
       >
         <div className="blog-next">
           <h4>NEXT</h4>
-          <h5>{blogBase[index].title}</h5>
-          <h6>{blogBase[index].date}</h6>
+          <h5>{articles[nextIndex].title}</h5>
+          <h6>{articles[nextIndex].date}</h6>
         </div>
       </Link>
     );
