@@ -1,7 +1,6 @@
 import ContactImage from "../images/contactimage.png"
 
 function ContactImg () {
-    console.log("--Contact Image--")
 
     return (
         <div >

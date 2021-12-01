@@ -4,7 +4,6 @@ import ToTopButton from "./ToTopButton";
 import { Link } from "react-router-dom";
 
 function BlogNext({ changeArticle }) {
-  console.log("--Blog Next--");
   const articles = useSelector(selectArticles);
   const nextIndex = useSelector(selectIndexStates).articleIndex - 1;
 

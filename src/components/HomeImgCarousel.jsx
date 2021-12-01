@@ -3,7 +3,6 @@ import { selectArticles } from "../store/Reducer";
 import Carousel from "../../node_modules/react-bootstrap/Carousel";
 
 function HomeImgCarousel() {
-  console.log("--Home Carousel--")
   const articles = useSelector(selectArticles)
 
   return (

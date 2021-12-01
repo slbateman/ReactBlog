@@ -2,17 +2,17 @@ import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import defaultImg from "../images/the-exorcist.jpeg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectUsers,
+  updateUserInfo,
+  addUser,
+} from "../store/Reducer";
 
-function LoginSignup({
-  email,
-  setEmail,
-  userBase,
-  setUserInfo,
-  setUserBase,
-  setUserIndex,
-  setLoggedIn,
-}) {
-  console.log("--SignUp--");
+function LoginSignup({ email, setEmail }) {
+  const dispatch = useDispatch();
+  const users = useSelector(selectUsers);
+  const newUserID = users[users.length].userID + 1;
 
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -23,44 +23,23 @@ function LoginSignup({
 
   const userCreate = () => {
     if (password1 === password2) {
-      console.log(userName);
-      console.log(firstName);
-      console.log(lastName);
-      console.log(email);
-      console.log(password1);
-      console.log(password2);
-      let newUserArr = [
-        ...userBase,
-        {
-          userID: userBase.length + 1,
-          userName: userName,
-          fName: firstName,
-          lName: lastName,
-          email: email,
-          password: password1,
-          role: "user",
-          avatar: defaultImg,
-        },
-      ];
-      localStorage.setItem("users", JSON.stringify(newUserArr));
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          email: email,
-          loggedIn: true,
-        })
-      );
-      setUserInfo(JSON.parse(localStorage.getItem("user")));
-      setUserBase(newUserArr);
-      setLoggedIn(true);
-      history.push("/");
+      let newUser = {
+        userID: newUserID,
+        userName: userName,
+        fName: firstName,
+        lName: lastName,
+        email: email,
+        password: password1,
+        role: "user",
+        avatar: defaultImg,
+      };
+      dispatch(addUser(newUser));
+      dispatch(updateUserInfo({
+        userID: newUserID,
+        loggedIn: true
+      }));
+      history.push("/profile");
     } else {
-      console.log(userName);
-      console.log(firstName);
-      console.log(lastName);
-      console.log(email);
-      console.log(password1);
-      console.log(password2);
       console.log("passwords do not match");
     }
   };
@@ -110,11 +89,6 @@ function LoginSignup({
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  setUserIndex(
-                    userBase.findIndex(
-                      (element) => element.email === e.target.value
-                    )
-                  );
                 }}
               />
             </Form.Group>

@@ -3,8 +3,6 @@ import { selectArticles, selectIndexStates } from "../store/Reducer";
 import { Link } from "react-router-dom";
 
 function BlogPrevious({ changeArticle }) {
-
-  console.log("--Blog Previous--")
   const articles = useSelector(selectArticles);
   const prevIndex = useSelector(selectIndexStates).articleIndex + 1;
   

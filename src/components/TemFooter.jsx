@@ -1,15 +1,14 @@
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react"
+import { useSelector } from "react-redux"
+import { selectUserInfo } from "../store/Reducer";
 
-function TemFooter({ loggedIn }) {
-  const [profile, setProfile] = useState("login");
-  const [profileLink, setProfileLink] = useState("/login")
-
-  useEffect(() => {
-    loggedIn ? setProfile("profile"): setProfile("login")
-    loggedIn ? setProfileLink("/login/profile"): setProfileLink("/login")
-  }, [loggedIn]);
+function TemFooter() {
+  const userInfo = useSelector(selectUserInfo)
+  let profile
+  let profileLink
+  userInfo.loggedIn ? profile = "profile" : profile = "login"
+  userInfo.loggedIn ? profileLink = "/login/profile" : profileLink = "/login"
 
   return (
     <div className="tem-footer">

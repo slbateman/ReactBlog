@@ -1,51 +1,36 @@
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUsers, updateUserInfo } from "../store/Reducer";
 // import Users from "../data/Users"
 
 function LoginForm({
   email,
   setEmail,
-  setLoggedIn,
-  loggedIn,
-  userIndex,
-  setUserIndex,
-  userBase,
 }) {
-
-  console.log("--Login Form--")
+  const dispatch = useDispatch();
+  const users = useSelector(selectUsers);
 
   const [password, setPassword] = useState("");
+  const [user, setUser] = useState({});
   let history = useHistory();
 
-  const indexCheck = (e) => {
-    setUserIndex(userBase.findIndex((element) => element.email === e));
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        email: e,
-        loggedIn: false,
-      })
-    );
+  const userCheck = (e) => {
+    setUser(users.find((element) => element.email === e));
   };
 
   const userAuth = () => {
-    if (userIndex >= 0) {
-      if (email === userBase[userIndex].email) {
-        console.log(email);
-        if (password === userBase[userIndex].password) {
-          console.log(password);
-          setLoggedIn(true);
-          localStorage.setItem(
-            "user",
-            JSON.stringify({
-              email: email,
-              loggedIn: true,
-            })
-          );
-          history.push("/login/profile");
-        } else console.log("password does not match provided email");
-      } else console.log("user not in system");
+    if (user) {
+      if (password === user.password) {
+        dispatch(
+          updateUserInfo({
+            userID: user.userID,
+            loggedIn: true,
+          })
+        );
+        history.push("/login/profile");
+      } else console.log("password does not match provided email");
     } else console.log("user does not exist");
   };
 
@@ -67,7 +52,7 @@ function LoginForm({
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
-                  indexCheck(e.target.value);
+                  userCheck(e.target.value);
                 }}
               />
             </Form.Group>

@@ -1,18 +1,20 @@
 import { Form, Button, Col, Row } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { selectArticles, selectUserInfo, selectUsers, updateArticles } from "../store/Reducer";
 
-const NewArticle = ({ blogBase, setBlogBase, userInfo, userBase }) => {
-  console.log("--New Article--");
-  console.log(userBase);
+const NewArticle = () => {
+  const dispatch = useDispatch();
+  const userInfo = useSelector(selectUserInfo);
+  const users = useSelector(selectUsers);
+  const user = users.find((e) => e.userID === userInfo.userID)
+  const articles = useSelector(selectArticles);
+
 
   const history = useHistory();
-  const articleID = blogBase[0].articleID + 1;
-  const userIndex = userBase.findIndex(
-    (element) => element.email === userInfo.email
-  );
-  console.log(userIndex);
-  const author = userBase[userIndex].fName + " " + userBase[userIndex].lName;
+  const articleID = articles[0].articleID + 1;
+  const author = user.fName + " " + user.lName;
   const [title, setTitle] = useState("");
   const [date, setDate] = useState("");
   const [image, setImage] = useState("");
@@ -20,20 +22,16 @@ const NewArticle = ({ blogBase, setBlogBase, userInfo, userBase }) => {
   const [body, setBody] = useState("");
 
   const createArticle = () => {
-    let newArticleArr = [
-      {
+    let newArticle = {
         articleID: articleID,
-        userID: userBase[userIndex].userID,
+        userID: user.userID,
         body: [body],
         date: date,
         image: image,
         imageAlt: imageAlt,
         title: title,
-      },
-      ...blogBase,
-    ];
-    localStorage.setItem("blogs", JSON.stringify(newArticleArr));
-    setBlogBase(JSON.parse(localStorage.getItem("blogs")));
+      }
+      dispatch(updateArticles(newArticle))
     history.push(`/blog/${date}`);
   };
 

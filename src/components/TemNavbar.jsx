@@ -3,16 +3,16 @@ import Nav from "react-bootstrap/esm/Nav";
 import Button from "react-bootstrap/esm/Button";
 import Container from "react-bootstrap/esm/Container";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { selectUserInfo } from "../store/Reducer";
 
-function TemNavbar({ loggedIn }) {
-  const [profile, setProfile] = useState("login");
-  const [profileLink, setProfileLink] = useState("/login")
 
-  useEffect(() => {
-    loggedIn ? setProfile("profile"): setProfile("login")
-    loggedIn ? setProfileLink("/login/profile"): setProfileLink("/login")
-  }, [loggedIn]);
+function TemNavbar() {
+  const userInfo = useSelector(selectUserInfo)
+  let profile
+  let profileLink
+  userInfo.loggedIn ? profile = "profile" : profile = "login"
+  userInfo.loggedIn ? profileLink = "/login/profile" : profileLink = "/login"
 
   return (
     <div>

@@ -14,8 +14,8 @@ const initUserInfo = () => {
     localStorage.setItem(
       "userInfo",
       JSON.stringify({
-        userID: 1,
-        loggedIn: true,
+        userID: 0,
+        loggedIn: false,
       })
     );
     userInfo = JSON.parse(localStorage.getItem("userInfo"));
@@ -32,14 +32,14 @@ const initUsers = () => {
 const initArticles = () => {
   if (!articles) {
     localStorage.setItem("articles", JSON.stringify(ArticleList));
-    users = JSON.parse(localStorage.getItem("articles"));
+    articles = JSON.parse(localStorage.getItem("articles"));
   }
 };
 
 const initComments = () => {
   if (!comments) {
     localStorage.setItem("comments", JSON.stringify(Comments));
-    users = JSON.parse(localStorage.getItem("comments"));
+    comments = JSON.parse(localStorage.getItem("comments"));
     window.location.replace("/");
   }
 };
@@ -74,9 +74,25 @@ export const dataListSlice = createSlice({
     indexStates,
   },
   reducers: {
-    updateUserInfo: (state, action) => {},
-    updateUsers: (state, action) => {},
-    updateArticles: (state, action) => {},
+    updateUserInfo: (state, action) => {
+      state.userInfo = action.payload;
+      localStorage.setItem("userInfo", JSON.stringify(state.userInfo));
+    },
+    addUser: (state, action) => {
+      state.users = [...state.users, action.payload];
+      localStorage.setItem("users", JSON.stringify(state.users));
+    },
+    updateUsers: (state, action) => {
+      const index = state.users.findIndex(
+        (e) => e.userID === action.payload.userID
+      );
+      state.users[index] = action.payload
+      localStorage.setItem("users", JSON.stringify(state.users))
+    },
+    updateArticles: (state, action) => {
+      state.articles = [action.payload, ...state.articles];
+      localStorage.setItem("articles", JSON.stringify(state.articles));
+    },
     updateComments: (state, action) => {
       state.comments = [...state.comments, action.payload];
       localStorage.setItem("comments", JSON.stringify(state.comments));
@@ -115,6 +131,7 @@ export const dataListSlice = createSlice({
 
 export const {
   updateUserInfo,
+  addUser,
   updateUsers,
   updateArticles,
   updateComments,

@@ -7,7 +7,6 @@ import {
 import BlogComments from "./BlogComments";
 
 function BlogArticle() {
-  console.log("--Blog Article--");
   const article =
     useSelector(selectArticles)[useSelector(selectIndexStates).articleIndex];
   const author = useSelector(selectUsers).find(

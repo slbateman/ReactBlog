@@ -13,7 +13,6 @@ function BlogCommentReplyForm({
   buttonCommentID,
   setButtonCommentID,
 }) {
-  console.log("--Blog Comment Reply Form--");
   const comments = useSelector(selectComments);
   const userInfo = useSelector(selectUserInfo);
   const dispatch = useDispatch();

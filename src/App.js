@@ -1,5 +1,5 @@
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.css";
 import { Route, Switch } from "react-router-dom";
 import TemLogo from "./components/TemLogo";
 import HomeLogo from "./components/HomeLogo";
@@ -11,82 +11,8 @@ import Authors from "./components/Authors";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import NewArticle from "./components/NewArticle";
-import { useState, useEffect } from "react";
-import Users from "./data/Users";
-import ArticleList from "./data/ArticleList";
 
 function App() {
-  console.log("--App--");
-
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const [userInfo, setUserInfo] = useState(
-    JSON.parse(localStorage.getItem("user"))
-  );
-  if (!userInfo) {
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        email: "",
-        loggedIn: false,
-      })
-    );
-    setUserInfo(JSON.parse(localStorage.getItem("user")));
-  } 
-  // else {
-  //   localStorage.setItem("user", JSON.stringify(userInfo)) ;
-  // }
-
-  useEffect(() => {
-    if (userInfo) {
-      setLoggedIn(userInfo.loggedIn);
-    } else {
-      localStorage.setItem(
-        "user",
-        JSON.stringify({
-          email: "",
-          loggedIn: false,
-        })
-      );
-      setUserInfo(JSON.parse(localStorage.getItem("user")));
-    }
-  }, [userInfo]);
-
-  const [userBase, setUserBase] = useState(
-    JSON.parse(localStorage.getItem("users"))
-  );
-  if (!userBase) {
-    localStorage.setItem("users", JSON.stringify(Users));
-    setUserBase(JSON.parse(localStorage.getItem("users")));
-  } else {
-    localStorage.setItem("users", JSON.stringify(userBase));
-  }
-  useEffect(() => {
-    if (!userBase) {
-      localStorage.setItem("users", JSON.stringify(Users));
-      setUserBase(JSON.parse(localStorage.getItem("users")));
-    } else {
-      localStorage.setItem("users", JSON.stringify(userBase));
-    }
-  }, [userBase]);
-
-  const [blogBase, setBlogBase] = useState(
-    JSON.parse(localStorage.getItem("blogs"))
-  );
-  if (!blogBase) {
-    localStorage.setItem("blogs", JSON.stringify(ArticleList));
-    setBlogBase(JSON.parse(localStorage.getItem("blogs")));
-  } else {
-    localStorage.setItem("blogs", JSON.stringify(blogBase));
-  }
-  useEffect(() => {
-    if (!blogBase) {
-      localStorage.setItem("blogs", JSON.stringify(ArticleList));
-      setBlogBase(JSON.parse(localStorage.getItem("blogs")));
-    } else {
-      localStorage.setItem("blogs", JSON.stringify(blogBase));
-    }
-  }, [blogBase]);
 
   return (
     <div className="App">
@@ -101,7 +27,7 @@ function App() {
         </Switch>
       </div>
       <div className="top-nav">
-        <TemNavbar loggedIn={loggedIn} />
+        <TemNavbar />
       </div>
       <div>
         <Switch>
@@ -119,26 +45,14 @@ function App() {
             <Contact />
           </Route>
           <Route path="/login">
-            <Login
-              loggedIn={loggedIn}
-              setLoggedIn={setLoggedIn}
-              userBase={userBase}
-              setUserBase={setUserBase}
-              userInfo={userInfo}
-              setUserInfo={setUserInfo}
-            />
+            <Login />
           </Route>
           <Route path="/newArticle">
-            <NewArticle
-              blogBase={blogBase}
-              setBlogBase={setBlogBase}
-              userInfo={userInfo}
-              userBase={userBase}
-            />
+            <NewArticle />
           </Route>
         </Switch>
       </div>
-      <TemFooter loggedIn={loggedIn} />
+      <TemFooter />
     </div>
   );
 }

@@ -1,38 +1,31 @@
-// import Users from "../data/Users";
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserInfo, selectUsers, updateUserInfo } from "../store/Reducer";
 
-const LoginProfile = ({
-  email,
-  loggedIn,
-  userIndex,
-  setLoggedIn,
-  setUserIndex,
-  userBase,
-}) => {
-  console.log("--Login Profile--");
+const LoginProfile = () => {
+  const dispatch = useDispatch();
+  const userInfo = useSelector(selectUserInfo);
+  const users = useSelector(selectUsers);
+  const user = users.find((element) => element.userID === userInfo.userID);
 
   let isAuthor = false;
-  if (userBase[userIndex].role === "author" || userBase[userIndex].role === "admin") {
+  let history = useHistory();
+
+  if (user.role === "author" || user.role === "admin") {
     isAuthor = true;
   } else {
     isAuthor = false;
   }
 
-  let history = useHistory();
-  useEffect(() => {
-    if (loggedIn === false) {
-      history.push("/login");
-    }
-  }, [loggedIn, history]);
+  if (userInfo.loggedIn === false) {
+    history.push("/login");
+  }
 
   const logout = () => {
-    setLoggedIn(false);
-    localStorage.setItem(
-      "user",
-      JSON.stringify({
-        email: "",
+    dispatch(
+      updateUserInfo({
+        userID: 0,
         loggedIn: false,
       })
     );
@@ -59,34 +52,22 @@ const LoginProfile = ({
               <Form.Control
                 id="inlineFormInputGroup"
                 placeholder="Username"
-                value={userBase[userIndex].userName}
+                value={user.userName}
                 readOnly
               />
             </InputGroup>
             <Form.Group>
               <Form.Label>Role</Form.Label>
-              <Form.Control
-                placeholder="Admin"
-                value={userBase[userIndex].role}
-                readOnly
-              />
+              <Form.Control placeholder="Admin" value={user.role} readOnly />
             </Form.Group>
             <br />
             <Form.Group>
               <Form.Label>First Name</Form.Label>
-              <Form.Control
-                placeholder="John"
-                value={userBase[userIndex].fName}
-                readOnly
-              />
+              <Form.Control placeholder="John" value={user.fName} readOnly />
             </Form.Group>
             <Form.Group>
               <Form.Label>Last Name</Form.Label>
-              <Form.Control
-                placeholder="Doe"
-                value={userBase[userIndex].lName}
-                readOnly
-              />
+              <Form.Control placeholder="Doe" value={user.lName} readOnly />
             </Form.Group>
             <br />
             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -94,7 +75,7 @@ const LoginProfile = ({
               <Form.Control
                 type="email"
                 placeholder="Enter email"
-                value={userBase[userIndex].email}
+                value={user.email}
                 readOnly
               />
             </Form.Group>

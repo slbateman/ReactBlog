@@ -11,7 +11,6 @@ import {
 import { useState } from "react";
 
 function BlogComments() {
-  console.log("--Blog Comments--");
   const index = useSelector(selectIndexStates).articleIndex;
   const articles = useSelector(selectArticles);
   const article =

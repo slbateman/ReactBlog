@@ -6,7 +6,6 @@ import { selectArticles, updateArticleIndex } from "../store/Reducer";
 import { Route, Switch, useLocation } from "react-router-dom";
 
 function Blog() {
-  console.log("--Blog--");
   const articles = useSelector(selectArticles);
   const dispatch = useDispatch();
 

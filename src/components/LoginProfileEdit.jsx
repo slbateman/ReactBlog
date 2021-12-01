@@ -1,25 +1,53 @@
-import Users from "../data/Users";
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
-import { useState} from "react";
+import { useState } from "react";
 import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { selectUserInfo, selectUsers, updateUsers } from "../store/Reducer";
 
-const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex, userBase }) => {
+const LoginProfileEdit = () => {
+  const dispatch = useDispatch();
+  const userInfo = useSelector(selectUserInfo);
+  const users = useSelector(selectUsers);
+  const user = users.find((e) => e.userID === userInfo.userID);
 
-  let history = useHistory()
-  const [firstName, setFirstName] = useState(userBase[userIndex].fName);
-  const [lastName, setLastName] = useState(userBase[userIndex].lName);
-  const [email, setEmail] = useState(userBase[userIndex].email);
+  const [firstName, setFirstName] = useState(user.fName);
+  const [lastName, setLastName] = useState(user.lName);
+  const [email, setEmail] = useState(user.email);
   const [oldPassword, setOldPassword] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
+  let history = useHistory();
 
   const userUpdate = () => {
     if (oldPassword === "") {
+      dispatch(
+        updateUsers({
+          userID: user.userID,
+          userName: user.userName,
+          fName: firstName,
+          lName: lastName,
+          email: email,
+          password: user.password,
+          role: user.role,
+          avatar: user.avatar,
+          bio: user.bio,
+        })
+      );
       history.push("/login/profile");
-    } else if (
-      oldPassword === userBase[userIndex].password &&
-      password1 === password2
-    ) {
+    } else if (oldPassword === user.password && password1 === password2) {
+      dispatch(
+        updateUsers({
+          userID: user.userID,
+          userName: user.userName,
+          fName: firstName,
+          lName: lastName,
+          email: email,
+          password: password1,
+          role: user.role,
+          avatar: user.avatar,
+          bio: user.bio,
+        })
+      );
       history.push("/login/profile");
     } else {
       console.log("passwords are incorrect");
@@ -31,24 +59,25 @@ const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex, userBase }) => {
     <div className="login-profile-edit">
       <Row className="justify-content-center">
         <Col>
-          <Form onSubmit={() => userUpdate()}>
+          <Form
+            onSubmit={(e) => {
+              e.preventDefault();
+              userUpdate();
+            }}
+          >
             <Form.Label htmlFor="inlineFormInputGroup">Username</Form.Label>
             <InputGroup className="mb-2">
               <InputGroup.Text>@</InputGroup.Text>
               <Form.Control
                 id="inlineFormInputGroup"
                 placeholder="Username"
-                value={userBase[userIndex].userName}
+                value={user.userName}
                 readOnly
               />
             </InputGroup>
             <Form.Group>
               <Form.Label>Role</Form.Label>
-              <Form.Control
-                placeholder="Admin"
-                value={userBase[userIndex].role}
-                readOnly
-              />
+              <Form.Control placeholder="Admin" value={user.role} readOnly />
             </Form.Group>
             <br />
             <Form.Group>
@@ -110,7 +139,7 @@ const LoginProfileEdit = ({ loggedIn, userIndex, setUserIndex, userBase }) => {
               Submit Changes
             </Button>
             <br />
-            <br/>
+            <br />
             <Button className="m-1" variant="danger" type="submit">
               Delete Account
             </Button>

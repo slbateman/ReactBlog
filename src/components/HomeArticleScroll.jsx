@@ -5,7 +5,6 @@ import HomeArticleScrollAuthor from './HomeArticleScrollAuthor'
 import Container from "../../node_modules/react-bootstrap/Container";
 
 const HomeArticleScroll = () => {
-  console.log("--Home Article Scroll--");
   const articles = useSelector(selectArticles);
 
   return (

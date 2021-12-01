@@ -12,7 +12,6 @@ import { useHistory } from "react-router";
 import { useState } from "react";
 
 function BlogCommentForm() {
-  console.log("--Blog Comment Form--");
   const userInfo = useSelector(selectUserInfo);
   const article =
     useSelector(selectArticles)[useSelector(selectIndexStates).articleIndex];
