@@ -12,7 +12,7 @@ import {
 function LoginSignup({ email, setEmail }) {
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
-  const newUserID = users[users.length].userID + 1;
+  const newUserID = users[users.length-1].userID + 1;
 
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");

@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const replySchema = mongoose.Schema({
-  comment_ID: { type: String, required: true },
-  user_ID: { type: String, required: true },
+  comment_id: { type: String, required: true },
+  user_id: { type: String, required: true },
   reply: { type: String, required: true },
 });
 
