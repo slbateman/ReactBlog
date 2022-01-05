@@ -12,7 +12,7 @@ const userSchema = mongoose.Schema({
   fName: { type: String },
   lName: { type: String },
   email: { type: String },
-  bio: { type: String },
+  bio: { type: Array, default: [] },
 });
 
 const userModel = mongoose.model("user", userSchema);

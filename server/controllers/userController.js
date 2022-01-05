@@ -39,5 +39,5 @@ export const deleteUser = async (req, res) => {
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send(`No article with id: ${id}`);
   await userModel.findByIdAndRemove(id);
-  res.json({message: "comment deleted successfully"})
+  res.json({ message: "comment deleted successfully" });
 };

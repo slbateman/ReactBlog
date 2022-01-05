@@ -11,8 +11,18 @@ import Authors from "./components/Authors";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import NewArticle from "./components/NewArticle";
+import { useDispatch } from "react-redux";
+import { getArticles } from "./actions.js/articleActions";
+import { getComments } from "./actions.js/commentActions";
+import { getReplies } from "./actions.js/replyActions";
+import { getUsers } from "./actions.js/userActions";
 
 function App() {
+  const dispatch = useDispatch()
+  dispatch(getArticles)
+  dispatch(getComments)
+  dispatch(getReplies)
+  dispatch(getUsers)
 
   return (
     <div className="App">

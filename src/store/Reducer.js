@@ -14,7 +14,7 @@ const initUserInfo = () => {
     localStorage.setItem(
       "userInfo",
       JSON.stringify({
-        userID: 0,
+        user_ID: 0,
         loggedIn: false,
       })
     );

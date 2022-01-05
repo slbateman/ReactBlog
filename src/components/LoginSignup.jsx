@@ -1,18 +1,11 @@
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
-import defaultImg from "../images/the-exorcist.jpeg";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  selectUsers,
-  updateUserInfo,
-  addUser,
-} from "../store/Reducer";
+import { useDispatch } from "react-redux";
+import { postUser } from "../actions.js/userActions";
 
 function LoginSignup({ email, setEmail }) {
   const dispatch = useDispatch();
-  const users = useSelector(selectUsers);
-  const newUserID = users[users.length-1].userID + 1;
 
   const [userName, setUserName] = useState("");
   const [firstName, setFirstName] = useState("");
@@ -24,20 +17,14 @@ function LoginSignup({ email, setEmail }) {
   const userCreate = () => {
     if (password1 === password2) {
       let newUser = {
-        userID: newUserID,
         userName: userName,
         fName: firstName,
         lName: lastName,
         email: email,
         password: password1,
         role: "user",
-        avatar: defaultImg,
       };
-      dispatch(addUser(newUser));
-      dispatch(updateUserInfo({
-        userID: newUserID,
-        loggedIn: true
-      }));
+      dispatch(postUser(newUser));
       history.push("/profile");
     } else {
       console.log("passwords do not match");
