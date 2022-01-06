@@ -16,7 +16,7 @@ const userSlice = createSlice({
     },
     editUser: (state, action) => {
       state.users.map((user) =>
-      user._id === action.payload._id ? action.payload : user
+        user._id === action.payload._id ? action.payload : user
       );
     },
     removeUser: (state, action) => {
@@ -28,8 +28,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { allUsers, addUser, editUser, removeUser } =
-userSlice.actions;
+export const { allUsers, addUser, editUser, removeUser } = userSlice.actions;
 
 export const selectUsers = (state) => state.users.users;
 

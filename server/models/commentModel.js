@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
 const commentSchema = mongoose.Schema({
-  article_ID: { type: String, required: true },
-  user_ID: { type: String, required: true },
+  article_id: { type: String, required: true },
+  user_id: { type: String, required: true },
   comment: { type: String, required: true },
 });
 
