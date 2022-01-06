@@ -7,12 +7,11 @@ const app = express();
 const PORT = 5000;
 const CONNECTION = "mongodb://localhost/blog";
 
+// setup database connection
 mongoose.connect(CONNECTION, (err) => {
     if (err) throw err;
-    console.log("connected to db")
+    console.log("Server connected to blog Database")
 })
-
-// setup database connection
 
 // setup middlewares
 app.use(express.json({ limit: "30mb", extended: true }));

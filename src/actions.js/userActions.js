@@ -5,7 +5,6 @@ import { allUsers, addUser, editUser, removeUser } from "../store/userSlice.js";
 export const getUsers = () => async (dispatch) => {
   try {
     const { data } = await api.readUsers();
-    console.log(data);
     dispatch(allUsers(data));
   } catch (error) {
     console.log(error);
