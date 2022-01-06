@@ -2,19 +2,19 @@ import { Form, Button, Col, Row } from "react-bootstrap";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUsers, updateUserInfo } from "../store/Reducer";
-// import Users from "../data/Users"
+import { updateUserInfo } from "../store/Reducer";
+import { selectUsers } from "../store/userSlice";
 
 function LoginForm({
   email,
   setEmail,
 }) {
+  const history = useHistory();
   const dispatch = useDispatch();
   const users = useSelector(selectUsers);
 
   const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
-  let history = useHistory();
 
   const userCheck = (e) => {
     setUser(users.find((element) => element.email === e));
@@ -25,7 +25,7 @@ function LoginForm({
       if (password === user.password) {
         dispatch(
           updateUserInfo({
-            userID: user.userID,
+            user_ID: user._id,
             loggedIn: true,
           })
         );

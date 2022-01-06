@@ -12,6 +12,7 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 import NewArticle from "./components/NewArticle";
 import { useDispatch } from "react-redux";
+import { useEffect } from "react";
 import { getArticles } from "./actions.js/articleActions";
 import { getComments } from "./actions.js/commentActions";
 import { getReplies } from "./actions.js/replyActions";
@@ -19,10 +20,15 @@ import { getUsers } from "./actions.js/userActions";
 
 function App() {
   const dispatch = useDispatch()
-  dispatch(getArticles)
-  dispatch(getComments)
-  dispatch(getReplies)
-  dispatch(getUsers)
+
+  console.log("APP")
+
+  useEffect(() => {
+  dispatch(getArticles())
+  dispatch(getComments())
+  dispatch(getReplies())
+  dispatch(getUsers())
+  }, [dispatch])
 
   return (
     <div className="App">

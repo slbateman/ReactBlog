@@ -1,31 +1,34 @@
 import { Form, Button, Col, Row, InputGroup } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUserInfo, selectUsers, updateUserInfo } from "../store/Reducer";
+import { selectUserInfo, updateUserInfo } from "../store/Reducer";
+import { selectUsers } from "../store/userSlice";
 
 const LoginProfile = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
+
   const userInfo = useSelector(selectUserInfo);
-  const users = useSelector(selectUsers);
-  const user = users.find((element) => element.userID === userInfo.userID);
-
-  let isAuthor = false;
-  let history = useHistory();
-
-  if (user.role === "author" || user.role === "admin") {
-    isAuthor = true;
-  } else {
-    isAuthor = false;
-  }
-
   if (userInfo.loggedIn === false) {
     history.push("/login");
   }
 
+  const users = useSelector(selectUsers);
+  const user = users.find((element) => element._id === userInfo.user_ID);
+
+  let isAuthor = false;
+
+  if (!user) isAuthor = false
+  else if (user.role === "author" || user.role === "admin") {
+    isAuthor = true;
+  }
+
+  
+
   const logout = () => {
     dispatch(
       updateUserInfo({
-        userID: 0,
+        user_ID: 0,
         loggedIn: false,
       })
     );
@@ -33,6 +36,7 @@ const LoginProfile = () => {
   };
 
   return (
+    !user ? <div></div> : 
     <div className="login-profile">
       <Row className="justify-content-center">
         <Col>

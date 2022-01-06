@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
+console.log("SLICE");
 
-const users = [];
+const users = []
 
 const userSlice = createSlice({
   name: "users",
